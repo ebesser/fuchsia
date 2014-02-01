@@ -16,8 +16,7 @@ class User < ActiveRecord::Base
   # we are essentially aliasing .posts to .faves
   # method name       joiner table       lookup_table
   has_many :voted_on, :through => :votes, :source => :comment
-
-
+  has_many :followed, :through => :follows, :source => :topic
 
 
 end
