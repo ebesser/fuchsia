@@ -139,9 +139,6 @@ $(function document_ready(){
 
   $('.add').on('click', function(e) {
     var new_topic_title = $('#input-title').val(); 
-    console.log('new_topic_title===')
-
-    console.log($('#input-title').val())
     var new_topic_body = $('#input-body').val(); 
     if (new_topic_title.length > 0) {
       var new_topic = new Topic();
