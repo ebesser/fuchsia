@@ -3,6 +3,9 @@ Vitriol::Application.routes.draw do
   devise_for :users
 
   root :to => "topics#index"
+
+
+  resources :topics, only: [:index, :create, :destroy, :show, :update]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
