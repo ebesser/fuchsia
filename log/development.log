@@ -955,3 +955,184 @@ Started GET "/topics" for 127.0.0.1 at 2014-02-01 16:22:21 -0500
 Processing by TopicsController#index as JSON
   [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
 Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Processing by TopicsController#index as HTML
+  Rendered topics/index.html.erb within layouts/application (0.7ms)
+Compiled scripts.js  (0ms)  (pid 19546)
+Compiled application.js  (1ms)  (pid 19546)
+Completed 200 OK in 54ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Served asset /scripts.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (28ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:33:49 -0500
+Processing by TopicsController#index as JSON
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/topics" for 127.0.0.1 at 2014-02-01 17:33:56 -0500
+Processing by TopicsController#create as JSON
+  Parameters: {"topic"=>{"title"=>"title", "link"=>"soure", "body"=>"topic body"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "topics" ("body", "created_at", "link", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "topic body"], ["created_at", Sat, 01 Feb 2014 22:33:56 UTC +00:00], ["link", nil], ["title", "title"], ["updated_at", Sat, 01 Feb 2014 22:33:56 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:33:56 -0500
+Processing by TopicsController#index as JSON
+  [1m[36mTopic Load (0.5ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/topics" for 127.0.0.1 at 2014-02-01 17:36:34 -0500
+Processing by TopicsController#create as JSON
+  Parameters: {"topic"=>{"title"=>"titledoes thi", "link"=>"soure", "body"=>"topic body"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "topics" ("body", "created_at", "link", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "topic body"], ["created_at", Sat, 01 Feb 2014 22:36:34 UTC +00:00], ["link", nil], ["title", "titledoes thi"], ["updated_at", Sat, 01 Feb 2014 22:36:34 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:36:34 -0500
+Processing by TopicsController#index as JSON
+  [1m[36mTopic Load (0.5ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Processing by TopicsController#index as HTML
+  Rendered topics/index.html.erb within layouts/application (0.0ms)
+Compiled scripts.js  (0ms)  (pid 19546)
+Compiled application.js  (2ms)  (pid 19546)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Served asset /scripts.js - 200 OK (1ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:39:05 -0500
+Processing by TopicsController#index as JSON
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" 
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-01 17:39:50 -0500
+Processing by TopicsController#index as HTML
+  Rendered topics/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Served asset /scripts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:39:51 -0500
+Processing by TopicsController#index as JSON
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+Completed 200 OK in 58ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Processing by TopicsController#index as HTML
+  Rendered topics/index.html.erb within layouts/application (0.0ms)
+Compiled scripts.js  (0ms)  (pid 19794)
+Compiled application.js  (1ms)  (pid 19794)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Served asset /scripts.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:41:42 -0500
+Processing by TopicsController#index as JSON
+  [1m[35mTopic Load (1.9ms)[0m  SELECT "topics".* FROM "topics" 
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/topics" for 127.0.0.1 at 2014-02-01 17:42:11 -0500
+Processing by TopicsController#create as JSON
+  Parameters: {"topic"=>{"title"=>"how about this", "link"=>"source kubj", "body"=>"topic body"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "topics" ("body", "created_at", "link", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "topic body"], ["created_at", Sat, 01 Feb 2014 22:42:11 UTC +00:00], ["link", nil], ["title", "how about this"], ["updated_at", Sat, 01 Feb 2014 22:42:11 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-02-01 17:42:11 -0500
+Processing by TopicsController#index as JSON
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" 
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.4ms)
