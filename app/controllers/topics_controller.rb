@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   def create
     respond_to do |format|
       format.json do 
-        topic = Topic.create( title: params['topic']['title'], body: params['topic']['body'] )
+        topic = Topic.create( title: params['topic']['title'], link: params['topic']['link'], body: params['topic']['body'] )
         render :json => topic.to_json
       end
     end
