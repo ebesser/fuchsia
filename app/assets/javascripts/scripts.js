@@ -14,7 +14,7 @@ var topics_application = {
     })
       .success(function(data){
         $(data).each(function(idx, topic_ele){
-          var new_topic = new Topic(topic_ele.title, topic_ele.body, topic_ele.id);
+          var new_topic = new Topic(topic_ele.title, topic_ele.link, topic_ele.body, topic_ele.id);
           self.topics.push(new_topic)
         })
         success_fnc(); //call the function passed in
@@ -46,24 +46,26 @@ var topics_application = {
 
 // *********************************************
 //  Define Topic
-function Topic(title, body, id){
+function Topic(title, link, body, id){
   this.title = title;
+  this.link = link;
   this.body = body;
   this.id = id;
 }
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_li = $('<li>');
-  new_li.append(this.title).append(this.body)
+  var new_div = $('<div>');
+  new_div.append(this.title).append(this.link).append(this.body)
     .append($("<button>", {class: "remove"}).append("&#10007;"));
-  new_li.data("topic", this);
-  return new_li;
+  new_div.data("topic", this);
+  return new_div;
 }
 
 //  Local update
 Topic.prototype.update = function(data){
   this.title = data.title
+  this.link = data.link
   this.body = data.body
 };
 
@@ -139,10 +141,11 @@ $(function document_ready(){
 
   $('.add').on('click', function(e) {
     var new_topic_title = $('#input-title').val(); 
+    var new_topic_link = $('#input-link').val(); 
     var new_topic_body = $('#input-body').val(); 
     if (new_topic_title.length > 0) {
       var new_topic = new Topic();
-      new_topic.sync('create', {title: new_topic_title, body: new_topic_body});
+      new_topic.sync('create', {title: new_topic_title, link: new_topic_link, body: new_topic_body });
       topics_application.fetch(success_fnc);
 
     }
