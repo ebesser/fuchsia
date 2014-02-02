@@ -23,20 +23,15 @@ var topics_application = {
 
   render: function(){
     $('#topics-list').empty()
-    // $('#completed-topics-list').empty()
     var topicsReversed = $(this.topics).sort(function(a,b){ return b["id"] - a["id"] });
 
     topicsReversed.each(function(idx, topic){   
-      // if (topic.completed === false) {
-        $('#topics-list').append(topic.renderCurrent());
-      // } else {
-        // $('#completed-topics-list').append(topic.renderCompleted());
-      // }
+    $('#topics-list').append(topic.renderCurrent());
     })  
   },
 
   bind_buttons: function(){
-    $('.remove').on('click', function(e) {
+    $('.remove').on('click', function(e){
       $(this).parent().data("topic").sync('destroy');
       $(this).parent().remove();
     });
@@ -55,12 +50,15 @@ function Topic(title, link, body, id){
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_div = $('<div>');
-  new_div.append(this.title).append(this.link).append(this.body)
-    .append($("<button>", {class: "remove"}).append("&#10007;"));
+  var new_div = $("<div>",      {class: "topic-item"});
+  new_div.append( $("<div>",    {class: "topic-title"}).append(this.title) );
+  new_div.append( $("<div>",    {class: "topic-link"}).append(this.link) );
+  new_div.append( $("<div>",    {class: "topic-body"}).append(this.body) );
+  new_div.append( $("<button>", {class: "remove"}).append("&#10007;"));
   new_div.data("topic", this);
   return new_div;
 }
+
 
 //  Local update
 Topic.prototype.update = function(data){
@@ -139,15 +137,14 @@ $(function document_ready(){
   topics_application.fetch(success_fnc);
 
 
-  $('.add').on('click', function(e) {
+  $('.add').on('click', function(e){
     var new_topic_title = $('#input-title').val(); 
     var new_topic_link = $('#input-link').val(); 
     var new_topic_body = $('#input-body').val(); 
-    if (new_topic_title.length > 0) {
+    if (new_topic_title.length > 0){
       var new_topic = new Topic();
-      new_topic.sync('create', {title: new_topic_title, link: new_topic_link, body: new_topic_body });
+      new_topic.sync('create', { title: new_topic_title, link: new_topic_link, body: new_topic_body });
       topics_application.fetch(success_fnc);
-
     }
 
   });
