@@ -57,8 +57,7 @@ function Topic(title, created_at, link, body, id){
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>",    {class: "topic-item"      });
-  new_div.append( $("<div>",    {class: "topic-title"     }).append(this.title) ); 
-  //new_div.append( $("<div>",    {class: "topic-title"     }).html("<%= escape_javascript link_to ('" + this.title + "'), topics_path.html_safe %>") );
+  new_div.append( $("<div>",    {class: "topic-title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
   new_div.append( $("<div>",    {class: "topic-created_at"}).append(this.created_at) );
   new_div.append( $("<div>",    {class: "topic-link"      }).append(this.link) );
   new_div.append( $("<div>",    {class: "topic-body"      }).append(this.body) );
