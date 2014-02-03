@@ -19,7 +19,7 @@ var for_comments_application = {
                                     comment_ele.user_id,
                                     comment_ele.id
                                    );
-          self.comments.push(new_comment)
+          self.for_comments.push(new_comment)
         })
         success_fnc(); //call the function passed in
       }); 
@@ -48,7 +48,7 @@ var for_comments_application = {
 function ForComment(body, created_at, user_id, id){
   this.body       = body;
   this.created_at = created_at;
-  this.user_id = user_id;
+  this.user_id    = user_id;
   this.id         = id;
 }
 
@@ -74,7 +74,7 @@ ForComment.prototype.update = function(data){
 // Database mutation of destroy
 ForComment.prototype.destroy = function(){
   $.ajax({
-    url: '/forcomments/' + this.id,
+    url: '/for_comments/' + this.id,
     dataType: 'json',
     method: 'delete'
   })

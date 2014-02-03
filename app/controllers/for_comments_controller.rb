@@ -3,16 +3,16 @@ class ForCommentsController < ApplicationController
   def index 
     respond_to do |format|
       format.html
-      format.json { render json: Comment.all.to_json }
+      format.json { render json: ForComment.all.to_json }
     end
   end
 
   def create
     respond_to do |format|
       format.json do 
-        comment = Comment.create( body: params['comment']['body'], 
-                                  agree:  params['comment']['agree'] 
-                                )
+        comment = ForComment.create( body:    params['comment']['body'], 
+                                     user_id: params['comment']['user_id'],
+                                   )
         render :json => comment.to_json
       end
     end
@@ -25,7 +25,7 @@ class ForCommentsController < ApplicationController
   def destroy
     respond_to do |format|
       format.json do
-        comment = Comment.find(params[:id])
+        comment = ForComment.find(params[:id])
         comment.destroy
         render :json => comment.to_json
       end
@@ -36,7 +36,7 @@ class ForCommentsController < ApplicationController
   # def update
   #   respond_to do |format|
   #     format.json do
-  #       comment = Comment.find(params[:id])
+  #       comment = ForComment.find(params[:id])
   #       comment.title = params['comment']['title']
   #       comment.link  = params['comment']['link']
   #       comment.body  = params['comment']['body']
