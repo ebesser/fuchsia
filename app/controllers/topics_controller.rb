@@ -24,22 +24,13 @@ class TopicsController < ApplicationController
   end
 
   def show
-    # console.log(params[:id])
-    # console.log(params)
-    # binding.pry
-
     respond_to do |format|
       format.html do
-         topic = Topic.find(params[:id])
-        # console.log('params id= ' +params[:id])
-        # binding.pry
-        render :json => topic.to_json
       end
 
       format.json do
         topic = Topic.find(params[:id])
         console.log('params id= ' +params[:id])
-        # binding.pry
         render :json => topic.to_json
       end
     end
