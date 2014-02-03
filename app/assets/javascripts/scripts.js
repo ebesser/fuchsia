@@ -14,7 +14,12 @@ var topics_application = {
     })
       .success(function(data){
         $(data).each(function(idx, topic_ele){
-          var new_topic = new Topic(topic_ele.title, topic_ele.link, topic_ele.body, topic_ele.id);
+          var new_topic = new Topic(topic_ele.title, 
+                                    topic_ele.created_at, 
+                                    topic_ele.link, 
+                                    topic_ele.body, 
+                                    topic_ele.id
+                                   );
           self.topics.push(new_topic)
         })
         success_fnc(); //call the function passed in
@@ -41,20 +46,23 @@ var topics_application = {
 
 // *********************************************
 //  Define Topic
-function Topic(title, link, body, id){
-  this.title = title;
-  this.link = link;
-  this.body = body;
-  this.id = id;
+function Topic(title, created_at, link, body, id){
+  this.title      = title;
+  this.created_at = created_at;
+  this.link       = link;
+  this.body       = body;
+  this.id         = id;
 }
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_div = $("<div>",      {class: "topic-item"});
-  new_div.append( $("<div>",    {class: "topic-title"}).append(this.title) );
-  new_div.append( $("<div>",    {class: "topic-link"}).append(this.link) );
-  new_div.append( $("<div>",    {class: "topic-body"}).append(this.body) );
-  new_div.append( $("<button>", {class: "remove"}).append("&#10007;"));
+  var new_div =   $("<div>",    {class: "topic-item"      });
+  new_div.append( $("<div>",    {class: "topic-title"     }).append(this.title) ); 
+  //new_div.append( $("<div>",    {class: "topic-title"     }).html("<%= escape_javascript link_to ('" + this.title + "'), topics_path.html_safe %>") );
+  new_div.append( $("<div>",    {class: "topic-created_at"}).append(this.created_at) );
+  new_div.append( $("<div>",    {class: "topic-link"      }).append(this.link) );
+  new_div.append( $("<div>",    {class: "topic-body"      }).append(this.body) );
+  new_div.append( $("<button>", {class: "remove"          }).append("&#10007;") );
   new_div.data("topic", this);
   return new_div;
 }
@@ -62,9 +70,10 @@ Topic.prototype.renderCurrent = function(){
 
 //  Local update
 Topic.prototype.update = function(data){
-  this.title = data.title
-  this.link = data.link
-  this.body = data.body
+  this.title      = data.title
+  this.created_at = data.created_at
+  this.link       = data.link
+  this.body       = data.body
 };
 
 // Database mutation of destroy
@@ -138,12 +147,15 @@ $(function document_ready(){
 
 
   $('.add').on('click', function(e){
-    var new_topic_title = $('#input-title').val(); 
-    var new_topic_link = $('#input-link').val(); 
-    var new_topic_body = $('#input-body').val(); 
+    var new_topic_title = $('#input-title').val();  
+    var new_topic_link  = $('#input-link').val(); 
+    var new_topic_body  = $('#input-body').val(); 
     if (new_topic_title.length > 0){
       var new_topic = new Topic();
-      new_topic.sync('create', { title: new_topic_title, link: new_topic_link, body: new_topic_body });
+      new_topic.sync('create', { title: new_topic_title, 
+                                 link:  new_topic_link, 
+                                 body:  new_topic_body 
+                               });
       topics_application.fetch(success_fnc);
     }
 
