@@ -6,6 +6,7 @@ Vitriol::Application.routes.draw do
 
 
   resources :topics, only: [:index, :create, :destroy, :show, :update]
+  resources :comments, only: [:index, :create, :destroy, :show, :update]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

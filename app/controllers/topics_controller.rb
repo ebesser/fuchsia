@@ -30,7 +30,6 @@ class TopicsController < ApplicationController
 
       format.json do
         topic = Topic.find(params[:id])
-        console.log('params id= ' +params[:id])
         render :json => topic.to_json
       end
     end
