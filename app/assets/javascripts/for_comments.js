@@ -1,37 +1,36 @@
 'use strict';
-var comments_application = {
+var for_comments_application = {
 
-  comments: [],
+  for_comments: [],
 
   fetch: function(success_fnc){
     var self = this;
-    this.comments = [];
+    this.for_comments = [];
 
     $.ajax({
-      url: '/comments', 
+      url: '/for_comments', 
       dataType: 'json', 
       method: 'get'
     })
       .success(function(data){
         $(data).each(function(idx, comment_ele){
-          var new_comment = new Comment(comment_ele.body, 
+          var new_comment = new ForComment(comment_ele.body, 
                                     comment_ele.created_at, 
-                                    comment_ele.agree, 
+                                    comment_ele.user_id,
                                     comment_ele.id
                                    );
           self.comments.push(new_comment)
-          // console.log('comments==='+ self.comments)
         })
         success_fnc(); //call the function passed in
       }); 
   },
 
   render: function(){
-    $('#comments_list').empty()
+    $('#for_comments').empty()
     var commentsReversed = $(this.comments).sort(function(a,b){ return b["id"] - a["id"] });
 
     commentsReversed.each(function(idx, comment){   
-    $('#comments_list').append(comment.renderCurrent());
+    $('#for_comments').append(comment.renderCurrent());
     })  
   },
 
@@ -45,36 +44,37 @@ var comments_application = {
 };
 
 // *********************************************
-//  Define Comment
-function Comment(body, created_at, agree, id){
+//  Define ForComment
+function ForComment(body, created_at, user_id, id){
   this.body       = body;
   this.created_at = created_at;
-  this.agree      = agree;
+  this.user_id = user_id;
   this.id         = id;
 }
 
 // Local give-me-the-html-for-current-list
-Comment.prototype.renderCurrent = function(){
-  var new_div =   $("<div>",    {class: "commen_item"});
+ForComment.prototype.renderCurrent = function(){
+  var new_li =    $("<li>",     {class: "commen_item"});
   new_div.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
+  new_div.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
   new_div.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
   new_div.append( $("<button>", {class: "remove"}).append("&#10007;") );
   new_div.data("comment", this);
-  return new_div;
+  return new_li;
 }
 
 
 //  Local update
-Comment.prototype.update = function(data){
+ForComment.prototype.update = function(data){
   this.body       = data.body
   this.created_at = data.created_at
-  this.agree      = data.agree
+  this.user_id = data.user_id
 };
 
 // Database mutation of destroy
-Comment.prototype.destroy = function(){
+ForComment.prototype.destroy = function(){
   $.ajax({
-    url: '/comments/' + this.id,
+    url: '/forcomments/' + this.id,
     dataType: 'json',
     method: 'delete'
   })
@@ -85,7 +85,7 @@ Comment.prototype.destroy = function(){
 
 
 
-Comment.prototype.sync = function(method, comment_data){
+ForComment.prototype.sync = function(method, comment_data){
 
   var self = this;
 
@@ -94,7 +94,7 @@ Comment.prototype.sync = function(method, comment_data){
   switch (method){
   case 'create':
     ajax_options = {
-      url: '/comments',
+      url: '/for_comments',
       dataType: 'json',
       method: 'post',
       data: {comment: comment_data}
@@ -102,14 +102,14 @@ Comment.prototype.sync = function(method, comment_data){
     break;
   case 'get':
     ajax_options = {
-      url: '/comments/' + this.id,
+      url: '/for_comments/' + this.id,
       dataType: 'json',
       method: 'get'
     }
     break;
   case 'update':
     ajax_options = {
-      url: '/comments/' + this.id,
+      url: '/for_comments/' + this.id,
       dataType: 'json',
       method: 'put', 
       data: {comment: comment_data}
@@ -117,7 +117,7 @@ Comment.prototype.sync = function(method, comment_data){
     break;
   case 'destroy':
     ajax_options = {
-      url: '/comments/' + this.id,
+      url: '/for_comments/' + this.id,
       dataType: 'json',
       method: 'delete' 
     } 
@@ -134,36 +134,23 @@ $(function document_ready(){
   console.log('document is ready');
 
   var success_fnc = function(){
-    comments_application.render()
-    comments_application.bind_buttons()
+    for_comments_application.render()
+    for_comments_application.bind_buttons()
   };
 
-  comments_application.fetch(success_fnc);
+  for_comments_application.fetch(success_fnc);
 
 
   $('#button_for').on('click', function(e){
     var new_comment_body = $('#input_for').val();  
     if (new_comment_body.length > 0){
-      var new_comment = new Comment();
-      new_comment.sync('create', { body: new_comment_body, 
-                                   agree: true
+      var new_comment = new ForComment();
+      new_comment.sync('create', { body: new_comment_body,
+                                   user_id: window.user_id 
                                  });
-      comments_application.fetch(success_fnc);
+      for_comments_application.fetch(success_fnc);
     }
 
   });
-
-  $('#button_against').on('click', function(e){
-    var new_comment_body = $('#input_against').val();  
-    if (new_comment_body.length > 0){
-      var new_comment = new Comment();
-      new_comment.sync('create', { body: new_comment_body, 
-                                   agree: false
-                                 });
-      comments_application.fetch(success_fnc);
-    }
-
-  });
-
 
 });

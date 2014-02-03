@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController 
+class ForCommentsController < ApplicationController 
 
   def index 
     respond_to do |format|
