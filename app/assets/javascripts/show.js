@@ -20,17 +20,18 @@ var comments_application = {
                                     comment_ele.id
                                    );
           self.comments.push(new_comment)
+          // console.log('comments==='+ self.comments)
         })
         success_fnc(); //call the function passed in
       }); 
   },
 
   render: function(){
-    $('#comments-list').empty()
+    $('#comments_list').empty()
     var commentsReversed = $(this.comments).sort(function(a,b){ return b["id"] - a["id"] });
 
     commentsReversed.each(function(idx, comment){   
-    $('#comments-list').append(comment.renderCurrent());
+    $('#comments_list').append(comment.renderCurrent());
     })  
   },
 
@@ -54,14 +55,11 @@ function Comment(body, created_at, agree, id){
 
 // Local give-me-the-html-for-current-list
 Comment.prototype.renderCurrent = function(){
-  var new_div =   $("<div>",    {class: "comment-item"      });
-  new_div.append('hello!!!!');
-  // new_div.append( $("<div>",    {class: "comment-title"     }).append('<a href="/comments/'+ this.id +'">'+ this.title + '</a>') ); 
-  // new_div.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
-  // new_div.append( $("<div>",    {class: "comment-link"      }).append(this.link) );
-  // new_div.append( $("<div>",    {class: "comment-body"      }).append(this.body) );
-  // new_div.append( $("<button>", {class: "remove"          }).append("&#10007;") );
-  // new_div.data("comment", this);
+  var new_div =   $("<div>",    {class: "commen_item"});
+  new_div.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
+  new_div.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
+  new_div.append( $("<button>", {class: "remove"}).append("&#10007;") );
+  new_div.data("comment", this);
   return new_div;
 }
 

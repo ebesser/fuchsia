@@ -27,11 +27,11 @@ var topics_application = {
   },
 
   render: function(){
-    $('#topics-list').empty()
+    $('#topics_list').empty()
     var topicsReversed = $(this.topics).sort(function(a,b){ return b["id"] - a["id"] });
 
     topicsReversed.each(function(idx, topic){   
-    $('#topics-list').append(topic.renderCurrent());
+    $('#topics_list').append(topic.renderCurrent());
     })  
   },
 
@@ -56,11 +56,11 @@ function Topic(title, created_at, link, body, id){
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_div =   $("<div>",    {class: "topic-item"      });
-  new_div.append( $("<div>",    {class: "topic-title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
-  new_div.append( $("<div>",    {class: "topic-created_at"}).append(this.created_at) );
-  new_div.append( $("<div>",    {class: "topic-link"      }).append(this.link) );
-  new_div.append( $("<div>",    {class: "topic-body"      }).append(this.body) );
+  var new_div =   $("<div>",    {class: "topic_item"      });
+  new_div.append( $("<div>",    {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
+  new_div.append( $("<div>",    {class: "topic_created_at"}).append(this.created_at) );
+  new_div.append( $("<div>",    {class: "topic_link"      }).append(this.link) );
+  new_div.append( $("<div>",    {class: "topic_body"      }).append(this.body) );
   new_div.append( $("<button>", {class: "remove"          }).append("&#10007;") );
   new_div.data("topic", this);
   return new_div;
@@ -146,9 +146,9 @@ $(function document_ready(){
 
 
   $('.add').on('click', function(e){
-    var new_topic_title = $('#input-title').val();  
-    var new_topic_link  = $('#input-link').val(); 
-    var new_topic_body  = $('#input-body').val(); 
+    var new_topic_title = $('#input_title').val();  
+    var new_topic_link  = $('#input_link').val(); 
+    var new_topic_body  = $('#input_body').val(); 
     if (new_topic_title.length > 0){
       var new_topic = new Topic();
       new_topic.sync('create', { title: new_topic_title, 
