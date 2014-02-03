@@ -1,4 +1,6 @@
 'use strict';
+var current_user = "<%= current_user %>";
+
 var topics_application = {
 
   topics: [],
@@ -18,6 +20,7 @@ var topics_application = {
                                     topic_ele.created_at, 
                                     topic_ele.link, 
                                     topic_ele.body, 
+                                    topic_ele.user_id,
                                     topic_ele.id
                                    );
           self.topics.push(new_topic)
@@ -46,11 +49,12 @@ var topics_application = {
 
 // *********************************************
 //  Define Topic
-function Topic(title, created_at, link, body, id){
+function Topic(title, created_at, link, body, user_id, id){
   this.title      = title;
   this.created_at = created_at;
   this.link       = link;
   this.body       = body;
+  this.user_id    = user_id;
   this.id         = id;
 }
 
@@ -58,6 +62,7 @@ function Topic(title, created_at, link, body, id){
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>",    {class: "topic_item"      });
   new_div.append( $("<div>",    {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
+  new_div.append( $("<div>",    {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>",    {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>",    {class: "topic_link"      }).append(this.link) );
   new_div.append( $("<div>",    {class: "topic_body"      }).append(this.body) );
@@ -73,6 +78,7 @@ Topic.prototype.update = function(data){
   this.created_at = data.created_at
   this.link       = data.link
   this.body       = data.body
+  this.user_id    = data.user_id
 };
 
 // Database mutation of destroy
@@ -151,9 +157,10 @@ $(function document_ready(){
     var new_topic_body  = $('#input_body').val(); 
     if (new_topic_title.length > 0){
       var new_topic = new Topic();
-      new_topic.sync('create', { title: new_topic_title, 
-                                 link:  new_topic_link, 
-                                 body:  new_topic_body 
+      new_topic.sync('create', { title:    new_topic_title, 
+                                 link:     new_topic_link, 
+                                 body:     new_topic_body,
+                                 user_id:  window.user_id  
                                });
       topics_application.fetch(success_fnc);
     }
