@@ -1,5 +1,4 @@
 'use strict';
-var current_user = "<%= current_user %>";
 
 var topics_application = {
 
@@ -54,6 +53,7 @@ function Topic(title, created_at, link, body, user_id, id){
   this.created_at = created_at;
   this.link       = link;
   this.body       = body;
+  console.log('user_id====' + user_id)
   this.user_id    = user_id;
   this.id         = id;
 }

@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
+      t.string :img_url, :default => "http://foomandoonian.files.wordpress.com/2009/01/penguin-cartoon.png"
 
       ## Recoverable
       t.string   :reset_password_token

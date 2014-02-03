@@ -1,38 +1,51 @@
-<div id="mockup_wrapper">
+<div id="wrapper">
   <div id="title_bar">
     <h1 id="the_topic"></h1>
     <h3 id="the_link"></h3>
     <h3 id="the_description"></h3>
   </div>
+ 
 
-dummy
-<div id="comments_list"></div>
-
-
-
-  <div id"the_fighters">
+ 
+  <div id="the_fighters">
     <div id="fighter1">
-      <ul id="the_for_comments"></ul>
+      <ul class="the_comments" id="the_for_comments" >
+    <li>
+      <img src="http://placekitten.com/50/50"></img>
+      <h3>Username</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </li>
+      </ul>
     </div>
-
-    <div id="fighter 2">
-      <ul id="the_for_comments"></ul>
+ 
+    <div id="fighter2">
+      <ul class="the_comments" id="the_against_comments">
+        <li>
+      <img src="http://placekitten.com/50/50"></img>
+      <h3>Username</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </li>
+      </ul>
     </div>
   </div>
-
+ 
   <div id="comment_bar">
     <div id="the_arguments">
-      <div>FOR</div>
-      <div>AGAINST</div>
-    </div>
-    <div id="the_comment_boxes">
-      <input id="input_for" type="text" placeholder="Comment For" />
-      <input id="input_against" type="text" placeholder="Comment Against" />
-    </div>
-    <div id="the_buttons">
-      <button id="button_for">Submit</button>
-      <button id="button_against">Submit</button>
+        <div class="the_arguments" id="for_text">FOR</div>
+      <div class="the_arguments" id="against_text">AGAINST</div>
     </div>
   </div>
-
+  <div id="the_comment_boxes">
+  <div id="for_comment_box">
+    <textarea placeholder="Comment"></textarea>
+    <br />
+    <button id="button_for">Submit</button>
+  </div>
+  <div id="against_comment_box">
+    <textarea placeholder="Comment"></textarea>
+    <br />
+    <button id="button_against">Submit</button>
+  </div>
+</div>
+ 
 </div>
