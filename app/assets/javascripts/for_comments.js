@@ -15,10 +15,10 @@ var for_comments_application = {
       .success(function(data){
         $(data).each(function(idx, comment_ele){
           var new_comment = new ForComment(comment_ele.body, 
-                                    comment_ele.created_at, 
-                                    comment_ele.user_id,
-                                    comment_ele.id
-                                   );
+                                           comment_ele.created_at, 
+                                           comment_ele.user_id,
+                                           comment_ele.id
+                                          );
           self.for_comments.push(new_comment)
         })
         success_fnc(); //call the function passed in
@@ -54,10 +54,11 @@ function ForComment(body, created_at, user_id, id){
 
 // Local give-me-the-html-for-current-list
 ForComment.prototype.renderCurrent = function(){
-  var new_li =   $("<li>",     {class: "comment_item"});
-  new_li.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
-  new_li.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
-  new_li.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
+  var new_li =   $("<li>");
+  new_li.append( $("<h3>").append('image_placeholder' + this.created_at) );
+  new_li.append( $("<h3>").append(this.user_id) ); 
+  new_li.append( $("<p>").append(this.created_at) ); 
+  new_li.append( $("<p>").append(this.body) ); 
   new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
   new_li.data("comment", this);
   return new_li;

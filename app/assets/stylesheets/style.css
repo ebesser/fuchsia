@@ -1,0 +1,154 @@
+/* html5doctor.com Reset v1.6.1 - http://cssreset.com */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+
+#wrapper {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#title_bar {
+  background-color: grey;
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  z-index: 2;
+  box-shadow: 0px 5px 3px darkgrey;
+}
+
+#the_topic {
+  font-size: 2.5em;
+}
+
+#the_fighters {
+  width: 83%;
+  position: absolute;
+  top: 16%;
+  left: 8%;
+  padding-bottom: 20px;
+}
+
+#the_fighters div {
+  width: 35%;
+}
+
+#fighter1 {
+  background-color: darkgrey;
+  height: 100%;
+  float: left;
+}
+
+#fighter2 {
+  background-color: darkgrey;
+  height: 100%;
+  float: right;
+}
+
+#for_fists, #against_fists {
+  width: 28%;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 2;
+  left: 35.5%;
+  top: 40%;
+}
+
+#for_fists div, #against_fists div{
+  background:url("fistsprite.png");
+  background-position: 0 0;
+  width: 117px;
+  height: 117px;
+}
+
+#against_fists {
+  margin-left: 19%;
+}
+
+#for_fist_back {
+  margin-left: 7%
+}
+
+#against_fist_back {
+  margin-left: -7%
+}
+
+.the_comments {
+  list-style-type: none;
+  width: 95%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.the_comments li {
+  background-color: white;
+  padding: 10px 0;
+  margin: 8px 0;
+}
+
+.the_comments li img {
+  padding: 0 9px;
+  border-radius: 25%;
+  float: left;
+}
+
+#the_arguments {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.the_arguments {
+  display: inline-block;
+}
+
+#for_text {
+  padding: 4px;
+  float:left;
+  margin-left: 8%;
+  font-size: 3em;
+}
+
+#against_text {
+  padding: 4px;
+  float: right;
+  margin-right: 4.5%;
+  font-size: 3em;
+}
+
+#comment_bar {
+  background-color: grey;
+  width: 100%;
+  height: 15%;
+  bottom: 10%;
+  position: fixed;
+  box-shadow: 0px 5px 3px darkgrey;
+
+}
+
+#the_comment_boxes {
+  width: 85%;
+  margin: 0 auto;
+  bottom: 6%;
+  position: fixed;
+  margin-left: 7%;
+}
+
+#the_comment_boxes div {
+  background-color: lightgrey;
+  width: 25%;
+  box-shadow: 0px 5px 3px black;
+}
+
+#the_comment_boxes textarea {
+  width: 90%;
+}
+
+#for_comment_box {
+  float: left;
+  margin-left: 4%;
+  padding: 10px 15px;
+}
+
+#against_comment_box {
+  float: right;
+  margin-right: 4%;
+  padding: 10px 15px;
+}
