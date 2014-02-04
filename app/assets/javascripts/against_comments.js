@@ -18,7 +18,10 @@ var against_comments_application = {
             comment_ele.body, 
             comment_ele.created_at, 
             comment_ele.user_id,
+            comment_ele.username,
+            comment_ele.img_url,
             comment_ele.topic_id,
+            comment_ele.rank,
             comment_ele.id
           );
           self.against_comments.push(new_comment)
@@ -47,11 +50,14 @@ var against_comments_application = {
 
 // *********************************************
 //  Define AgainstComment
-function AgainstComment(body, created_at, user_id, topic_id, id){
+function AgainstComment(body, created_at, user_id, username, img_url, topic_id, rank, id){
   this.body       = body;
   this.created_at = created_at;
   this.user_id    = user_id;
+  this.username   = username;
+  this.img_url    = img_url;
   this.topic_id   = topic_id;
+  this.rank       = rank;
   this.id         = id;
 }
 
@@ -60,8 +66,8 @@ AgainstComment.prototype.renderCurrent = function(){
   var displayedTopic = window.location.pathname.replace("/topics/", "")
   if (displayedTopic == this.topic_id) {
     var new_li =   $("<li>",     {class: "comment_item"});
-    new_li.append( $("<h3>").append('image_placeholder' + this.created_at) );
-    new_li.append( $("<h3>").append(this.user_id) ); 
+    new_li.append( $("<img>").attr('src', this.img_url ) ); 
+    new_li.append( $("<h3>").append(this.username) );
     new_li.append( $("<p>").append(this.created_at) ); 
     new_li.append( $("<p>").append(this.body) ); 
     if (window.user_id === this.user_id) {
@@ -78,7 +84,10 @@ AgainstComment.prototype.update = function(data){
   this.body       = data.body
   this.created_at = data.created_at
   this.topic_id   = data.topic_id
+  this.rank       = data.rank
   this.user_id    = data.user_id
+  this.username   = data.username
+  this.img_url    = data.img_url
 };
 
 // Database mutation of destroy
@@ -158,6 +167,8 @@ $(function document_ready(){
       new_comment.sync('create', { 
         body: new_comment_body,
         user_id: window.user_id,
+        username: window.username,
+        img_url: window.img_url,
         topic_id: window.location.pathname.replace("/topics/", "") 
       });
       against_comments_application.fetch(success_fnc);

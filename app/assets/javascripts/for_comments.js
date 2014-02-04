@@ -169,6 +169,8 @@ $(function document_ready(){
       new_comment.sync('create', { 
         body: new_comment_body,
         user_id: window.user_id,
+        username: window.username,
+        img_url: window.img_url,
         topic_id: window.location.pathname.replace("/topics/", "")
       });
       for_comments_application.fetch(success_fnc);
