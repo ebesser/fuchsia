@@ -63,7 +63,9 @@ AgainstComment.prototype.renderCurrent = function(){
     new_li.append( $("<h3>").append(this.user_id) ); 
     new_li.append( $("<p>").append(this.created_at) ); 
     new_li.append( $("<p>").append(this.body) ); 
-    new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+    if (window.user_id === this.user_id) {
+      new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+    }
     new_li.data("comment", this);
     return new_li;
   }
