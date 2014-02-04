@@ -25,6 +25,7 @@
   </div>
   <% if current_user %>
     <script> window.user_id = <%= current_user.id %> </script>
+    <script> window.img_url = "<%= current_user.img_url %>" </script>
   <% end %>
 </body>
 </html>

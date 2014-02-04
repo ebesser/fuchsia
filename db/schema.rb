@@ -16,9 +16,12 @@ ActiveRecord::Schema.define(:version => 20140203223955) do
   create_table "against_comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
+    t.string   "username"
+    t.string   "img_url"
     t.integer  "topic_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "rank",       :default => 100
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "against_votes", :force => true do |t|
@@ -38,9 +41,12 @@ ActiveRecord::Schema.define(:version => 20140203223955) do
   create_table "for_comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
+    t.string   "username"
+    t.string   "img_url"
     t.integer  "topic_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "rank",       :default => 100
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "for_votes", :force => true do |t|
@@ -61,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20140203223955) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",                                                                     :null => false
+    t.string   "username",               :default => "",                                                                     :null => false
     t.string   "encrypted_password",     :default => "",                                                                     :null => false
     t.string   "img_url",                :default => "http://foomandoonian.files.wordpress.com/2009/01/penguin-cartoon.png"
     t.string   "reset_password_token"

@@ -27,7 +27,20 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   padding-bottom: 15%;
 }
 
+#the_empty_columns {
+  width: 83%;
+  height: 130%;
+  position: absolute;
+  top: 16%;
+  left: 8%;
+  padding-bottom: 15%;
+}
+
 #the_fighters div {
+  width: 35%;
+}
+
+#the_empty_columns div{
   width: 35%;
 }
 
@@ -38,6 +51,18 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #fighter2 {
+  background-color: darkgrey;
+  height: 100%;
+  float: right;
+}
+
+#empty_column1{
+  background-color: darkgrey;
+  height: 100%;
+  float: left;
+}
+
+#empty_column2{
   background-color: darkgrey;
   height: 100%;
   float: right;
