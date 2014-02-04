@@ -1,0 +1,156 @@
+'use strict';
+var against_comments_application = {
+
+  against_comments: [],
+
+  fetch: function(success_fnc){
+    var self = this;
+    this.against_comments = [];
+
+    $.ajax({
+      url: '/against_comments', 
+      dataType: 'json', 
+      method: 'get'
+    })
+      .success(function(data){
+        $(data).each(function(idx, comment_ele){
+          var new_comment = new AgainstComment(comment_ele.body, 
+                                    comment_ele.created_at, 
+                                    comment_ele.user_id,
+                                    comment_ele.id
+                                   );
+          self.against_comments.push(new_comment)
+        })
+        success_fnc(); //call the function passed in
+      }); 
+  },
+
+  render: function(){
+    $('#the_against_comments').empty()
+    var commentsReversed = $(this.against_comments).sort(function(a,b){ return b["id"] - a["id"] });
+
+    commentsReversed.each(function(idx, comment){   
+    $('#the_against_comments').append(comment.renderCurrent());
+    })  
+  },
+
+  bind_buttons: function(){
+    $('.remove').on('click', function(e){
+      $(this).parent().data("comment").sync('destroy');
+      $(this).parent().remove();
+    });
+  }
+
+};
+
+// *********************************************
+//  Define AgainstComment
+function AgainstComment(body, created_at, user_id, id){
+  this.body       = body;
+  this.created_at = created_at;
+  this.user_id    = user_id;
+  this.id         = id;
+}
+
+// Local give-me-the-html-against-current-list
+AgainstComment.prototype.renderCurrent = function(){
+  var new_li =   $("<li>",     {class: "comment_item"});
+  new_li.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
+  new_li.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
+  new_li.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
+  new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+  new_li.data("comment", this);
+  return new_li;
+}
+
+
+//  Local update
+AgainstComment.prototype.update = function(data){
+  this.body       = data.body
+  this.created_at = data.created_at
+  this.user_id = data.user_id
+};
+
+// Database mutation of destroy
+AgainstComment.prototype.destroy = function(){
+  $.ajax({
+    url: '/against_comments/' + this.id,
+    dataType: 'json',
+    method: 'delete'
+  })
+    .success(function(data){
+      console.log('I got em.  Done... ')
+    });
+};
+
+
+
+AgainstComment.prototype.sync = function(method, comment_data){
+
+  var self = this;
+
+  var ajax_options;
+
+  switch (method){
+  case 'create':
+    ajax_options = {
+      url: '/against_comments',
+      dataType: 'json',
+      method: 'post',
+      data: {comment: comment_data}
+    }
+    break;
+  case 'get':
+    ajax_options = {
+      url: '/against_comments/' + this.id,
+      dataType: 'json',
+      method: 'get'
+    }
+    break;
+  case 'update':
+    ajax_options = {
+      url: '/against_comments/' + this.id,
+      dataType: 'json',
+      method: 'put', 
+      data: {comment: comment_data}
+    }
+    break;
+  case 'destroy':
+    ajax_options = {
+      url: '/against_comments/' + this.id,
+      dataType: 'json',
+      method: 'delete' 
+    } 
+  }
+
+  $.ajax(ajax_options)
+    .success(function(data){
+      self.update(data)
+    })
+};
+
+
+$(function document_ready(){
+  console.log('document is ready');
+
+  var success_fnc = function(){
+    against_comments_application.render()
+    against_comments_application.bind_buttons()
+  };
+
+  against_comments_application.fetch(success_fnc);
+
+
+  $('#button_against').on('click', function(e){
+    var new_comment_body = $('#input_against').val();  
+    if (new_comment_body.length > 0){
+      var new_comment = new AgainstComment();
+      new_comment.sync('create', { body: new_comment_body,
+                                   user_id: window.user_id 
+                                 });
+      against_comments_application.fetch(success_fnc);
+    }
+
+  });
+
+});
