@@ -127,12 +127,19 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   margin: 8px 0;
 }
 
-.the_comments li img {
+.user_img {
   padding: 0 9px;
   border-radius: 25%;
   float: left;
   width: 50px;
   height: 50px;
+}
+.the_comments li img {
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-width: 90%;
 }
 
 #the_arguments {
