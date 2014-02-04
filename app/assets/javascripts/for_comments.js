@@ -14,12 +14,13 @@ var for_comments_application = {
     })
       .success(function(data){
         $(data).each(function(idx, comment_ele){
-          var new_comment = new ForComment( comment_ele.body, 
-                                            comment_ele.created_at, 
-                                            comment_ele.user_id,
-                                            comment_ele.topic_id,
-                                            comment_ele.id
-                                          );
+          var new_comment = new ForComment( 
+            comment_ele.body, 
+            comment_ele.created_at, 
+            comment_ele.user_id,
+            comment_ele.topic_id,
+            comment_ele.id
+          );
           self.for_comments.push(new_comment)
         })
         success_fnc(); //call the function passed in
@@ -61,9 +62,6 @@ ForComment.prototype.renderCurrent = function(){
     var new_li =   $("<li>");
     new_li.append( $("<h3>").append('image_placeholder') );
     new_li.append( $("<h3>").append(this.user_id) );
-    // new_li.append( $("<h3>").append('<%= User.find(' + this.user_id + ').img_url%>') );  
-    // new_li.append( $("<h3>").append( User.find(this.user_id).img_url ) );  
-    
     new_li.append( $("<p>").append(this.created_at) ); 
     new_li.append( $("<p>").append(this.body) );
     if (window.user_id === this.user_id) {
@@ -158,10 +156,11 @@ $(function document_ready(){
     var new_comment_body = $('#input_for').val();  
     if (new_comment_body.length > 0){
       var new_comment = new ForComment();
-      new_comment.sync('create', { body: new_comment_body,
-                                   user_id: window.user_id,
-                                   topic_id: window.location.pathname.replace("/topics/", "")
-                                 });
+      new_comment.sync('create', { 
+        body: new_comment_body,
+        user_id: window.user_id,
+        topic_id: window.location.pathname.replace("/topics/", "")
+      });
       for_comments_application.fetch(success_fnc);
     }
 

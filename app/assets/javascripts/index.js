@@ -15,13 +15,14 @@ var topics_application = {
     })
       .success(function(data){
         $(data).each(function(idx, topic_ele){
-          var new_topic = new Topic(topic_ele.title, 
-                                    topic_ele.created_at, 
-                                    topic_ele.link, 
-                                    topic_ele.body, 
-                                    topic_ele.user_id,
-                                    topic_ele.id
-                                   );
+          var new_topic = new Topic(
+            topic_ele.title, 
+            topic_ele.created_at, 
+            topic_ele.link, 
+            topic_ele.body, 
+            topic_ele.user_id,
+            topic_ele.id
+           );
           self.topics.push(new_topic)
         })
         success_fnc(); //call the function passed in
@@ -59,7 +60,7 @@ function Topic(title, created_at, link, body, user_id, id){
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_div = $("<div>", {class: "topic_item"});
+  var new_div =   $("<div>", {class: "topic_item"});
   new_div.append( $("<div>", {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
   new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
@@ -160,11 +161,12 @@ $(function document_ready(){
     var new_topic_body  = $('#input_body').val(); 
     if (new_topic_title.length > 0){
       var new_topic = new Topic();
-      new_topic.sync('create', { title:    new_topic_title, 
-                                 link:     new_topic_link, 
-                                 body:     new_topic_body,
-                                 user_id:  window.user_id  
-                               });
+      new_topic.sync('create', { 
+        title:    new_topic_title, 
+        link:     new_topic_link, 
+        body:     new_topic_body,
+        user_id:  window.user_id  
+      });
       topics_application.fetch(success_fnc);
     }
 
