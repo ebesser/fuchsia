@@ -26,11 +26,11 @@ var for_comments_application = {
   },
 
   render: function(){
-    $('#for_comments').empty()
+    $('#the_for_comments').empty()
     var commentsReversed = $(this.comments).sort(function(a,b){ return b["id"] - a["id"] });
 
     commentsReversed.each(function(idx, comment){   
-    $('#for_comments').append(comment.renderCurrent());
+    $('#the_for_comments').append(comment.renderCurrent());
     })  
   },
 
