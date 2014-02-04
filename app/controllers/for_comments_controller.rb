@@ -13,7 +13,10 @@ class ForCommentsController < ApplicationController
         comment = ForComment.create( 
           body:     params['comment']['body'], 
           user_id:  params['comment']['user_id'],
-          topic_id: params['comment']['topic_id']
+          username: params['comment']['username'],
+          img_url:  params['comment']['img_url'],
+          topic_id: params['comment']['topic_id'],
+          rank:     params['comment']['rank']
         )
         render :json => comment.to_json
       end
