@@ -10,9 +10,11 @@ class AgainstCommentsController < ApplicationController
   def create
     respond_to do |format|
       format.json do 
-        comment = AgainstComment.create( body:    params['comment']['body'], 
-                                     user_id: params['comment']['user_id'],
-                                   )
+        comment = AgainstComment.create( 
+          body:    params['comment']['body'], 
+          user_id: params['comment']['user_id'],
+          topic_id: params['comment']['topic_id']
+        )
         render :json => comment.to_json
       end
     end

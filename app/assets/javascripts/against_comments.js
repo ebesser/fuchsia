@@ -14,11 +14,13 @@ var against_comments_application = {
     })
       .success(function(data){
         $(data).each(function(idx, comment_ele){
-          var new_comment = new AgainstComment(comment_ele.body, 
-                                    comment_ele.created_at, 
-                                    comment_ele.user_id,
-                                    comment_ele.id
-                                   );
+          var new_comment = new AgainstComment(
+            comment_ele.body, 
+            comment_ele.created_at, 
+            comment_ele.user_id,
+            comment_ele.topic_id,
+            comment_ele.id
+          );
           self.against_comments.push(new_comment)
         })
         success_fnc(); //call the function passed in
@@ -45,22 +47,29 @@ var against_comments_application = {
 
 // *********************************************
 //  Define AgainstComment
-function AgainstComment(body, created_at, user_id, id){
+function AgainstComment(body, created_at, user_id, topic_id, id){
   this.body       = body;
   this.created_at = created_at;
   this.user_id    = user_id;
+  this.topic_id   = topic_id;
   this.id         = id;
 }
 
 // Local give-me-the-html-against-current-list
 AgainstComment.prototype.renderCurrent = function(){
-  var new_li =   $("<li>",     {class: "comment_item"});
-  new_li.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
-  new_li.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
-  new_li.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
-  new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
-  new_li.data("comment", this);
-  return new_li;
+  var displayedTopic = window.location.pathname.replace("/topics/", "")
+  if (displayedTopic == this.topic_id) {
+    var new_li =   $("<li>",     {class: "comment_item"});
+    new_li.append( $("<h3>").append('image_placeholder' + this.created_at) );
+    new_li.append( $("<h3>").append(this.user_id) ); 
+    new_li.append( $("<p>").append(this.created_at) ); 
+    new_li.append( $("<p>").append(this.body) ); 
+    if (window.user_id === this.user_id) {
+      new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+    }
+    new_li.data("comment", this);
+    return new_li;
+  }
 }
 
 
@@ -68,7 +77,8 @@ AgainstComment.prototype.renderCurrent = function(){
 AgainstComment.prototype.update = function(data){
   this.body       = data.body
   this.created_at = data.created_at
-  this.user_id = data.user_id
+  this.topic_id   = data.topic_id
+  this.user_id    = data.user_id
 };
 
 // Database mutation of destroy
@@ -145,9 +155,11 @@ $(function document_ready(){
     var new_comment_body = $('#input_against').val();  
     if (new_comment_body.length > 0){
       var new_comment = new AgainstComment();
-      new_comment.sync('create', { body: new_comment_body,
-                                   user_id: window.user_id 
-                                 });
+      new_comment.sync('create', { 
+        body: new_comment_body,
+        user_id: window.user_id,
+        topic_id: window.location.pathname.replace("/topics/", "") 
+      });
       against_comments_application.fetch(success_fnc);
     }
 
