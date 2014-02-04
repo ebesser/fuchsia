@@ -33,6 +33,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 #the_fighters div {
   width: 35%;
+  min-height: 580px;
 }
 
 #fighter1 {
@@ -46,35 +47,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 100%;
   float: right;
 }
-
-/*Empty columns filled in by comments*/
-
-/*#the_empty_columns div{
-  width: 35%;
-  z-index: -1;
-}
-
-#the_empty_columns {
-  width: 83%;
-  height: 130%;
-  position: absolute;
-  top: 16%;
-  left: 8%;
-  padding-bottom: 15%;
-  z-index: -1;
-}
-
-#empty_column1{
-  background-color: darkgrey;
-  height: 100%;
-  float: left;
-}
-
-#empty_column2{
-  background-color: darkgrey;
-  height: 100%;
-  float: right;
-}*/
 
 /*The animated fists*/
 
