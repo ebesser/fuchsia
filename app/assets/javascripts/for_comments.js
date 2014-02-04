@@ -27,7 +27,7 @@ var for_comments_application = {
 
   render: function(){
     $('#the_for_comments').empty()
-    var commentsReversed = $(this.comments).sort(function(a,b){ return b["id"] - a["id"] });
+    var commentsReversed = $(this.for_comments).sort(function(a,b){ return b["id"] - a["id"] });
 
     commentsReversed.each(function(idx, comment){   
     $('#the_for_comments').append(comment.renderCurrent());
@@ -54,12 +54,12 @@ function ForComment(body, created_at, user_id, id){
 
 // Local give-me-the-html-for-current-list
 ForComment.prototype.renderCurrent = function(){
-  var new_li =    $("<li>",     {class: "commen_item"});
-  new_div.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
-  new_div.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
-  new_div.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
-  new_div.append( $("<button>", {class: "remove"}).append("&#10007;") );
-  new_div.data("comment", this);
+  var new_li =   $("<li>",     {class: "comment_item"});
+  new_li.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
+  new_li.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
+  new_li.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
+  new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+  new_li.data("comment", this);
   return new_li;
 }
 
