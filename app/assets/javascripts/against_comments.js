@@ -65,7 +65,7 @@ function AgainstComment(body, created_at, user_id, username, img_url, topic_id, 
 AgainstComment.prototype.renderCurrent = function(){
   var displayedTopic = window.location.pathname.replace("/topics/", "")
   if (displayedTopic == this.topic_id) {
-    var new_li =   $("<li>",     {class: "comment_item"});
+    var new_li =   $("<li>", {class: "comment_item"});
     new_li.append( $("<img>").attr('src', this.img_url ) ); 
     new_li.append( $("<h3>").append(this.username) );
     new_li.append( $("<p>").append(this.created_at) ); 
@@ -165,10 +165,10 @@ $(function document_ready(){
     if (new_comment_body.length > 0){
       var new_comment = new AgainstComment();
       new_comment.sync('create', { 
-        body: new_comment_body,
-        user_id: window.user_id,
+        body:     new_comment_body,
+        user_id:  window.user_id,
         username: window.username,
-        img_url: window.img_url,
+        img_url:  window.img_url,
         topic_id: window.location.pathname.replace("/topics/", "") 
       });
       against_comments_application.fetch(success_fnc);

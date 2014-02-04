@@ -34,6 +34,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   top: 16%;
   left: 8%;
   padding-bottom: 15%;
+  z-index: -1;
 }
 
 #the_fighters div {
@@ -42,6 +43,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 #the_empty_columns div{
   width: 35%;
+  z-index: -1;
 }
 
 #fighter1 {
