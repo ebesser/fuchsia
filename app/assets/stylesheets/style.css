@@ -6,6 +6,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   margin: 0 auto;
 }
 
+/*The Title Bar*/
+
 #title_bar {
   background-color: grey;
   width: 100%;
@@ -19,6 +21,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   font-size: 2.5em;
 }
 
+/*The Fighters = The two columns of comments*/
+
 #the_fighters {
   width: 83%;
   position: absolute;
@@ -27,23 +31,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   padding-bottom: 15%;
 }
 
-#the_empty_columns {
-  width: 83%;
-  height: 130%;
-  position: absolute;
-  top: 16%;
-  left: 8%;
-  padding-bottom: 15%;
-  z-index: -1;
-}
-
 #the_fighters div {
   width: 35%;
-}
-
-#the_empty_columns div{
-  width: 35%;
-  z-index: -1;
+  min-height: 580px;
 }
 
 #fighter1 {
@@ -58,17 +48,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   float: right;
 }
 
-#empty_column1{
-  background-color: darkgrey;
-  height: 100%;
-  float: left;
-}
-
-#empty_column2{
-  background-color: darkgrey;
-  height: 100%;
-  float: right;
-}
+/*The animated fists*/
 
 #for_fists, #against_fists {
   width: 28%;
@@ -76,7 +56,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   position: fixed;
   z-index: 2;
   left: 35.5%;
-  top: 40%;
+  top: 20%;
 }
 
 #for_fists div, #against_fists div{
@@ -98,6 +78,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   background:url("against_fist_front.png");
   background-repeat: no-repeat;
   background-position: 0 0;
+  margin-left: -7%;
 }
 
 #for_fist_back {
@@ -108,11 +89,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #against_fist_back {
-  margin-left: -76%;
+  margin-left: -85%;
   background:url("against_fist_back.png");
   background-repeat: no-repeat;
   background-position: 0 0;
 }
+
+/*The comments themselves, inside the fighter columns*/
 
 .the_comments {
   list-style-type: none;
@@ -127,13 +110,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   margin: 8px 0;
 }
 
-.user_img {
-  padding: 0 9px;
-  border-radius: 25%;
-  float: left;
-  width: 50px;
-  height: 50px;
-}
 .the_comments li img {
   padding: 10px;
   margin-right: auto;
@@ -141,6 +117,22 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   display: block;
   max-width: 90%;
 }
+
+.user_img {
+  border-radius: 25%;
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.comment_body {
+  padding: 5px 15px;
+  max-width: 95%;
+  text-align: justify;
+  overflow: scroll;
+}
+
+/*The text inside of the new comment box banner*/
 
 #the_arguments {
   width: 75%;
@@ -164,6 +156,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   margin-right: 4.5%;
   font-size: 3em;
 }
+
+/*The banner that holds the new comment boxes*/
 
 #comment_bar {
   background-color: grey;
