@@ -17,13 +17,11 @@
  
   <div id="the_fighters">
     <div id="fighter1">
-      <h1>For comments</h1>
       <ul class="the_comments" id="the_for_comments">
       </ul>
     </div>
  
     <div id="fighter2">
-    <h1>Against comments</h1>
       <ul class="the_comments" id="the_against_comments">
       </ul>
     </div>
@@ -35,17 +33,19 @@
       <div class="the_arguments" id="against_text">AGAINST</div>
     </div>
   </div>
-  <div id="the_comment_boxes">
-  <div id="for_comment_box">
-    <textarea id="input_for" placeholder="Comment"></textarea>
-    <br />
-    <button id="button_for">Submit</button>
-  </div>
-  <div id="against_comment_box">
-    <textarea id="input_against" placeholder="Comment"></textarea>
-    <br />
-    <button id="button_against">Submit</button>
-  </div>
+  <% if current_user %>
+    <div id="the_comment_boxes">
+    <div id="for_comment_box">
+      <textarea id="input_for" placeholder="Comment"></textarea>
+      <br />
+      <button id="button_for">Submit</button>
+    </div>
+    <div id="against_comment_box">
+      <textarea id="input_against" placeholder="Comment"></textarea>
+      <br />
+      <button id="button_against">Submit</button>
+    </div>
+  <% end %>  
 </div>
  
 

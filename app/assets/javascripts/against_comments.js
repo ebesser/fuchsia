@@ -55,9 +55,10 @@ function AgainstComment(body, created_at, user_id, id){
 // Local give-me-the-html-against-current-list
 AgainstComment.prototype.renderCurrent = function(){
   var new_li =   $("<li>",     {class: "comment_item"});
-  new_li.append( $("<div>",    {class: "comment-created_at"}).append(this.created_at) );
-  new_li.append( $("<div>",    {class: "comment_user_id"}).append(this.user_id) ); 
-  new_li.append( $("<div>",    {class: "comment_body"}).append(this.body) ); 
+  new_li.append( $("<h3>").append('image_placeholder' + this.created_at) );
+  new_li.append( $("<h3>").append(this.user_id) ); 
+  new_li.append( $("<p>").append(this.created_at) ); 
+  new_li.append( $("<p>").append(this.body) ); 
   new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
   new_li.data("comment", this);
   return new_li;
