@@ -24,7 +24,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   position: absolute;
   top: 16%;
   left: 8%;
-  padding-bottom: 20px;
+  padding-bottom: 15%;
 }
 
 #the_fighters div {
@@ -53,22 +53,38 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #for_fists div, #against_fists div{
-  background:url("fistsprite.png");
-  background-position: 0 0;
-  width: 117px;
-  height: 117px;
+  width: 404px;
+  height: 150px;
 }
 
 #against_fists {
   margin-left: 19%;
 }
 
+#for_fist_front { 
+  background:url("for_fist_front.png");
+  background-repeat: no-repeat;
+  background-position: -264px 0;
+}
+
+#against_fist_front {
+  background:url("against_fist_front.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
 #for_fist_back {
-  margin-left: 7%
+  margin-left: 10%;
+  background:url("for_fist_back.png");
+  background-repeat: no-repeat;
+  background-position: -5 0;
 }
 
 #against_fist_back {
-  margin-left: -7%
+  margin-left: -76%;
+  background:url("against_fist_back.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
 .the_comments {
