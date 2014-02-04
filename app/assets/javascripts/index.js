@@ -53,20 +53,23 @@ function Topic(title, created_at, link, body, user_id, id){
   this.created_at = created_at;
   this.link       = link;
   this.body       = body;
-  console.log('user_id====' + user_id)
   this.user_id    = user_id;
   this.id         = id;
 }
 
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
-  var new_div =   $("<div>",    {class: "topic_item"      });
-  new_div.append( $("<div>",    {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
-  new_div.append( $("<div>",    {class: "topic_user_id"   }).append(this.user_id) );
-  new_div.append( $("<div>",    {class: "topic_created_at"}).append(this.created_at) );
-  new_div.append( $("<div>",    {class: "topic_link"      }).append(this.link) );
-  new_div.append( $("<div>",    {class: "topic_body"      }).append(this.body) );
-  new_div.append( $("<button>", {class: "remove"          }).append("&#10007;") );
+  var new_div = $("<div>", {class: "topic_item"});
+  new_div.append( $("<div>", {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
+  new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
+  new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
+  new_div.append( $("<div>", {class: "topic_link"      }).append(this.link) );
+  new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
+
+  if (window.user_id === this.user_id) {
+    new_div.append( $("<button>", {class: "remove"}).append("&#10007;") );
+  }
+
   new_div.data("topic", this);
   return new_div;
 }

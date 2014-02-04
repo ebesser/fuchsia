@@ -10,8 +10,9 @@ class ForCommentsController < ApplicationController
   def create
     respond_to do |format|
       format.json do 
-        comment = ForComment.create( body:    params['comment']['body'], 
-                                     user_id: params['comment']['user_id'],
+        comment = ForComment.create( body:     params['comment']['body'], 
+                                     user_id:  params['comment']['user_id'],
+                                     topic_id: params['comment']['topic_id']
                                    )
         render :json => comment.to_json
       end
