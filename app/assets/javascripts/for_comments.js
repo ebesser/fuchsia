@@ -54,10 +54,9 @@ var for_comments_application = {
       $(this).parent().data("comment").sync('downvote');
     });
 
+    // $('#follow').on('click', function(e){
 
-    // $('.follow').on('click', function(e){
-    //   $(this).parent().data("comment").sync('follow');
-    // }),;
+    // });
 
   }
 
@@ -182,16 +181,15 @@ ForComment.prototype.sync = function(method, comment_data){
     }
     break; 
 
-
   // case 'follow':
-  //   topic_id = window.location.pathname.replace("/topics/", "")
-  //   ajax_options = {
-  //     url: '/topics/' + topic_id + '/follow',
-  //     dataType: 'json',
-  //     method: 'put', 
-  //     data: {comment: comment_data}
-  //   }
-  //   break; 
+  // ajax_options = {
+  //   url: '/topics/' + this.topic_id + '/follow',
+  //   dataType: 'json',
+  //   method: 'put', 
+  //   data: {topic: topic_data, user: window.user_id}
+  //   console.log("This is the result of the follow:" + data)
+  // }
+  // break; 
 
   case 'destroy':
     ajax_options = {

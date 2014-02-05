@@ -41,12 +41,14 @@ class TopicsController < ApplicationController
   def follow
      respond_to do |format|
       format.html do
+        # if params.class = Integer
+
         follow = Follow.new
         follow.user_id = params['user']
         follow.topic_id = params['topic_id']
         follow.save!
 
-        render :json => comment.to_json
+        render :json => follow.to_json
       end
     end
   end

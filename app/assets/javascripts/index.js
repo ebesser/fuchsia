@@ -44,12 +44,9 @@ var topics_application = {
       $(this).parent().remove();
     });
   
-
     $('.follow').on('click', function(e){
       $(this).parent().data("topic").sync('follow');
     });
-
-
 
   }
 
