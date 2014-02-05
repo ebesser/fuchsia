@@ -32,7 +32,7 @@ var for_comments_application = {
 
   render: function(){
     $('#the_for_comments').empty()
-    var commentsReversed = $(this.for_comments).sort(function(a,b){ return b["id"] - a["id"] });
+    var commentsReversed = $(this.for_comments).sort(function(a,b){ return b["rank"] - a["rank"] });
 
     commentsReversed.each(function(idx, comment){   
     $('#the_for_comments').append(comment.renderCurrent());
@@ -82,7 +82,7 @@ ForComment.prototype.renderCurrent = function(){
     new_li.append( $("<p>").addClass("comment_body").append(this.body) );
     if (window.user_id === this.user_id) {
       new_li.append( $("<button>", {class: "upvote"  }).append("+") );
-      new_li.append( $("<span>",      {class: "rank"    }).append(this.rank) ); 
+      new_li.append( $("<span>",   {class: "rank"    }).append(this.rank - 100) ); 
       new_li.append( $("<button>", {class: "downvote"}).append("-") );
       new_li.append( $("<button>", {class: "remove"  }).append("&#10007;") );
     }

@@ -15,8 +15,7 @@ class ForCommentsController < ApplicationController
           user_id:  params['comment']['user_id'],
           username: params['comment']['username'],
           img_url:  params['comment']['img_url'],
-          topic_id: params['comment']['topic_id'],
-          rank:     params['comment']['rank']
+          topic_id: params['comment']['topic_id']
         )
         render :json => comment.to_json
       end
