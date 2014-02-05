@@ -176,7 +176,7 @@ ForComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break; 
-    
+
   case 'destroy':
     ajax_options = {
       url: '/for_comments/' + this.id,
@@ -205,6 +205,7 @@ $(function document_ready(){
 
   $('#button_for').on('click', function(e){
     var new_comment_body = $('#input_for').val();  
+    $('#input_for').val("");
     if (new_comment_body.length > 0){
       var new_comment = new ForComment();
       new_comment.sync('create', { 
@@ -216,7 +217,7 @@ $(function document_ready(){
       });
       for_comments_application.fetch(success_fnc);
     }
-
+    
   });
 
 });

@@ -203,7 +203,8 @@ $(function document_ready(){
 
 
   $('#button_against').on('click', function(e){
-    var new_comment_body = $('#input_against').val();  
+    var new_comment_body = $('#input_against').val();
+    $('#input_against').val("");  
     if (new_comment_body.length > 0){
       var new_comment = new AgainstComment();
       new_comment.sync('create', { 
