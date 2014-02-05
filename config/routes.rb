@@ -19,6 +19,10 @@ Vitriol::Application.routes.draw do
     put "downvote"
   end
 
+  resources :topics do
+    put "follow"
+  end
+
   get '/shoot_mail' => 'home#shoot_mail'
 
   # The priority is based upon order of creation:

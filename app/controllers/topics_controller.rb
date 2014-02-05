@@ -37,6 +37,21 @@ class TopicsController < ApplicationController
     end
   end
 
+
+  def follow
+     respond_to do |format|
+      format.html do
+        follow = Follow.new
+        follow.user_id = params['user']
+        follow.topic_id = params['topic_id']
+        follow.save!
+
+        render :json => comment.to_json
+      end
+    end
+  end
+
+
   def destroy
     respond_to do |format|
       format.json do

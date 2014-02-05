@@ -43,6 +43,14 @@ var topics_application = {
       $(this).parent().data("topic").sync('destroy');
       $(this).parent().remove();
     });
+  
+
+    $('.follow').on('click', function(e){
+      $(this).parent().data("topic").sync('follow');
+    });
+
+
+
   }
 
 };
@@ -66,7 +74,10 @@ Topic.prototype.renderCurrent = function(){
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>", {class: "topic_link"      }).append(this.link) );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
-
+ 
+  if (window.user_id) {
+    new_div.append( $("<button>", {class: "follow"       }).append("Follow"))
+  }
   if (window.user_id === this.user_id) {
     new_div.append( $("<button>", {class: "remove"  }).append("&#10007;") );
   }
@@ -129,6 +140,16 @@ Topic.prototype.sync = function(method, topic_data){
       data: {topic: topic_data}
     }
     break;
+
+  case 'follow':
+  ajax_options = {
+    url: '/topics/' + this.id + '/follow',
+    dataType: 'json',
+    method: 'put', 
+    data: {topic: topic_data, user: window.user_id}
+  }
+  break; 
+
   case 'destroy':
     ajax_options = {
       url: '/topics/' + this.id,

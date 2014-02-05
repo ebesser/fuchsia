@@ -54,6 +54,11 @@ var for_comments_application = {
       $(this).parent().data("comment").sync('downvote');
     });
 
+
+    // $('.follow').on('click', function(e){
+    //   $(this).parent().data("comment").sync('follow');
+    // }),;
+
   }
 
 };
@@ -168,7 +173,7 @@ ForComment.prototype.sync = function(method, comment_data){
   }
   break;
     
-   case 'downvote':
+  case 'downvote':
     ajax_options = {
       url: '/for_comments/' + this.id + '/downvote',
       dataType: 'json',
@@ -176,6 +181,17 @@ ForComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break; 
+
+
+  // case 'follow':
+  //   topic_id = window.location.pathname.replace("/topics/", "")
+  //   ajax_options = {
+  //     url: '/topics/' + topic_id + '/follow',
+  //     dataType: 'json',
+  //     method: 'put', 
+  //     data: {comment: comment_data}
+  //   }
+  //   break; 
 
   case 'destroy':
     ajax_options = {
