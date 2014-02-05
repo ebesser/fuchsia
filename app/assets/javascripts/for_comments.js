@@ -47,7 +47,7 @@ var for_comments_application = {
 
     $('.upvote').on('click', function(e){
       $(this).parent().data("comment").sync('upvote');
-
+    
     }),
 
     $('.downvote').on('click', function(e){
@@ -82,6 +82,7 @@ ForComment.prototype.renderCurrent = function(){
     new_li.append( $("<p>").addClass("comment_body").append(this.body) );
     if (window.user_id === this.user_id) {
       new_li.append( $("<button>", {class: "upvote"  }).append("+") );
+      new_li.append( $("<span>",      {class: "rank"    }).append(this.rank) ); 
       new_li.append( $("<button>", {class: "downvote"}).append("-") );
       new_li.append( $("<button>", {class: "remove"  }).append("&#10007;") );
     }
@@ -177,7 +178,6 @@ ForComment.prototype.sync = function(method, comment_data){
 
   $.ajax(ajax_options)
     .success(function(data){
-      // console.log(data)
       self.update(data)
     })
 };

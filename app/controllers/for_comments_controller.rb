@@ -38,32 +38,25 @@ class ForCommentsController < ApplicationController
   end
 
   def upvote
-
      respond_to do |format|
       format.html do
-        binding.pry
         comment = ForComment.find(params[:for_comment_id].to_i)
-
         comment.increment(:rank)
         comment.save!
         render :json => comment.to_json
       end
-
-
-
-
-
-      # format.json do
-      #   comment = ForComment.find(params[:id])
-      #   comment.increment(:rank)
-      #   comment.save!
-      #   render :json => comment.to_json
-      # end
     end
   end
 
   def downvote
-
+    respond_to do |format|
+      format.html do
+        comment = ForComment.find(params[:for_comment_id].to_i)
+        comment.decrement(:rank)
+        comment.save!
+        render :json => comment.to_json
+      end
+    end
   end
 
 
