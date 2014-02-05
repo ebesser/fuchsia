@@ -39,7 +39,7 @@ class ForCommentsController < ApplicationController
   def upvote
      respond_to do |format|
       format.html do
-        comment = ForComment.find(params[:for_comment_id].to_i)
+        comment = ForComment.find(params[:for_comment_id])
         comment.increment(:rank)
         comment.save!
         render :json => comment.to_json
@@ -50,7 +50,7 @@ class ForCommentsController < ApplicationController
   def downvote
     respond_to do |format|
       format.html do
-        comment = ForComment.find(params[:for_comment_id].to_i)
+        comment = ForComment.find(params[:for_comment_id])
         comment.decrement(:rank)
         comment.save!
         render :json => comment.to_json

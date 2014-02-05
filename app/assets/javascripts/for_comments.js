@@ -77,19 +77,23 @@ ForComment.prototype.renderCurrent = function(){
   if (displayedTopic == this.topic_id) {
     var new_li =   $("<li>", {class: "comment_item"});
     new_li.append( $("<img>").addClass("user_img").attr('src', this.img_url ) );
-    new_li.append( $("<h3>").append(this.username) );
-    new_li.append( $("<p>").append(this.created_at) ); 
-    new_li.append( $("<p>").addClass("comment_body").append(this.body) );
+    new_li.append( $("<h3>" ).append(this.username) );
+    new_li.append( $("<p>"  ).append(this.created_at) ); 
+    new_li.append( $("<p>"  ).addClass("comment_body").append(this.body) );
     if (window.user_id) {
       new_li.append( $("<button>", {class: "upvote"  }).append("+") );
     }
+
     new_li.append(   $("<span>",   {class: "rank"    }).append(this.rank - 100) ); 
+    
     if (window.user_id) {
       new_li.append( $("<button>", {class: "downvote"}).append("-") );
     }
+    
     if (window.user_id === this.user_id) { 
       new_li.append( $("<button>", {class: "remove"  }).append("&#10007;") );
     }
+    
     new_li.data("comment", this);
     return new_li;
   }
@@ -137,6 +141,7 @@ ForComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break;
+
   case 'get':
     ajax_options = {
       url: '/for_comments/' + this.id,
@@ -144,6 +149,7 @@ ForComment.prototype.sync = function(method, comment_data){
       method: 'get'
     }
     break;
+
   case 'update':
     ajax_options = {
       url: '/for_comments/' + this.id,
@@ -170,8 +176,7 @@ ForComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break; 
-
-
+    
   case 'destroy':
     ajax_options = {
       url: '/for_comments/' + this.id,

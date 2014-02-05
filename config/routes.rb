@@ -14,6 +14,11 @@ Vitriol::Application.routes.draw do
     put "downvote"
   end
 
+  resources :against_comments do
+    put "upvote"
+    put "downvote"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
