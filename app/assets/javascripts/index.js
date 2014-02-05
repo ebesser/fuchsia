@@ -62,7 +62,7 @@ function Topic(title, created_at, link, body, user_id, id){
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>", {class: "topic_item"});
   new_div.append( $("<div>", {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
-  new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
+  // new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>", {class: "topic_link"      }).append(this.link) );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
