@@ -43,7 +43,17 @@ var for_comments_application = {
     $('.remove').on('click', function(e){
       $(this).parent().data("comment").sync('destroy');
       $(this).parent().remove();
+    }),
+
+    $('.upvote').on('click', function(e){
+      $(this).parent().data("comment").sync('upvote');
+
+    }),
+
+    $('.downvote').on('click', function(e){
+      $(this).parent().data("comment").sync('downvote');
     });
+
   }
 
 };
@@ -137,6 +147,26 @@ ForComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break;
+    
+  case 'upvote':
+  ajax_options = {
+    url: '/for_comments/' + this.id + '/upvote',
+    dataType: 'json',
+    method: 'put', 
+    data: {comment: comment_data}
+  }
+  break;
+    
+   case 'downvote':
+    ajax_options = {
+      url: '/for_comments/' + this.id + '/downvote',
+      dataType: 'json',
+      method: 'put', 
+      data: {comment: comment_data}
+    }
+    break; 
+
+
   case 'destroy':
     ajax_options = {
       url: '/for_comments/' + this.id,
@@ -147,6 +177,7 @@ ForComment.prototype.sync = function(method, comment_data){
 
   $.ajax(ajax_options)
     .success(function(data){
+      // console.log(data)
       self.update(data)
     })
 };
@@ -180,3 +211,8 @@ $(function document_ready(){
   });
 
 });
+
+
+
+
+
