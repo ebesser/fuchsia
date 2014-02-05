@@ -68,8 +68,6 @@ Topic.prototype.renderCurrent = function(){
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
 
   if (window.user_id === this.user_id) {
-    new_div.append( $("<button>", {class: "upvote"  }).append("+") );
-    new_div.append( $("<button>", {class: "downvote"}).append("-") );
     new_div.append( $("<button>", {class: "remove"  }).append("&#10007;") );
   }
 
