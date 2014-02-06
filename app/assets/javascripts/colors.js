@@ -19,7 +19,33 @@ var bgGradient = function(winner){
 }
 
 $(function(){
-    var topic_id = window.location.pathname.replace("/topics/", "");
+  var topic_id = window.location.pathname.replace("/topics/", "");
+  var buttonFor = $('#button_for');
+  var buttonAgainst = $('#button_against');
+
+  buttonFor.on("click", function(e){
+    console.log("works");
+      $.ajax({
+      url: '/topics/' + topic_id + '/winner', 
+      dataType: 'json', 
+      method: 'put',
+      success: (function(data){
+        bgGradient(data);
+      })
+    })
+  });
+  
+  buttonAgainst.on("click", function(e){
+    console.log("works");
+      $.ajax({
+      url: '/topics/' + topic_id + '/winner', 
+      dataType: 'json', 
+      method: 'put',
+      success: (function(data){
+        bgGradient(data);
+      })
+    })
+  });
 
 	$.ajax({
       url: '/topics/' + topic_id + '/winner', 
@@ -29,9 +55,4 @@ $(function(){
       	bgGradient(data);
       })
   	})
-
-  buttonFor.on("click", function(e){
-    console.log("works");
-    punchFor();
-  });
 })
