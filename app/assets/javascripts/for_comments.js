@@ -1,10 +1,9 @@
 'use strict';
 var for_comments_application = {
-  for_comments: [],
+  // for_comments: [],
 
   fetch: function(success_fnc){
-    var self = this;
-    this.for_comments = [];
+    var self = this;  
 
     $.ajax({
       url: '/for_comments', 
@@ -12,6 +11,7 @@ var for_comments_application = {
       method: 'get'
     })
       .success(function(data){
+        self.for_comments = [];
         $(data).each(function(idx, comment_ele){
           var new_comment = new ForComment( 
             comment_ele.body, 
