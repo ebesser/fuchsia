@@ -57,10 +57,11 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   z-index: 2;
   left: 35.5%;
   top: 20%;
+  pointer-events:none;
 }
 
 #for_fists div, #against_fists div{
-  width: 404px;
+  width: 145px;
   height: 150px;
 }
 
@@ -89,10 +90,10 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #against_fist_back {
-  margin-left: -85%;
+  margin-left: -10%;
   background:url("against_fist_back.png");
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: -262px 0;
 }
 
 /*The comments themselves, inside the fighter columns*/
