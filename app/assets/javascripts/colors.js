@@ -3,7 +3,7 @@ var bgGradient = function(winner){
   console.log(winner); 
   if (winner == 1) {
     bg_gradient.css({
-      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 75%, rgb(250, 255, 90) 75%)"
+      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 75%, rgb(250, 255, 90) 75%)",
     });
   }
   else if (winner == -1) {
@@ -34,7 +34,7 @@ $(function(){
       })
     })
   });
-  
+
   buttonAgainst.on("click", function(e){
     console.log("works");
       $.ajax({
