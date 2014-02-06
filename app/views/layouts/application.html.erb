@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="wrapper">
@@ -39,16 +42,15 @@
         <br />
         <textarea id="input_body" maxlength="600" placeholder="topic body"></textarea>
         <br />
-        <button class="add">Add Topic</button>
+        <button class="add button">Add Topic</button>
       </div>
       
       <h3>Fights you are following:</h3>
       <ul id="followed_topics"></ul>
-    
     </div>
   </div>
 
-  <button id="home" href="#">My Profile</a></button>
+  <button id="home" class="button" href="#">My Profile</a></button>
     <script> window.user_id = <%= current_user.id %> </script>
     <script> window.username = "<%= current_user.username %>" </script>
     <script> window.img_url = "<%= current_user.img_url %>" </script>

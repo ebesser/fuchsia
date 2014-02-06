@@ -1,0 +1,26 @@
+
+div.panel {
+  display:none;
+  position: absolute;
+  top: 0;
+  width:30%;
+  left:0%;
+  height: 100%;
+  z-index: 3;
+  margin: 0;
+  overflow:hidden;
+    background-color:black;
+}
+div.home {
+    display:none;
+    font-family:arial;
+    color:white;
+    padding:50px;
+    overflow:hidden;
+}
+span.close {
+    position:absolute;
+    right:10px;
+    top:15px;
+    cursor:pointer;
+}
