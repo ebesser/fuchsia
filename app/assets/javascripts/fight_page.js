@@ -10,7 +10,10 @@ $(function(){
     dataType: "json",
     success: (function(data){
         theTopic.text(data.title);
-        theLink.text(data.link);
+        if (data.link) {
+          theLink.append( $("<div>", {class: "topic_link"      })
+                 .append('<a href="'+ data.link +'">'+ data.link.substring(0,20) + '</a>') );
+        }
         theBody.text(data.body);
         // console.log(data.title + " " + data.link + " " + data.body);
     })
