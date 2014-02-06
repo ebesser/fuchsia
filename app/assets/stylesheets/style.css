@@ -270,6 +270,7 @@ button{z-index: 3}
 
 a, a:hover, a:link, a:active, a:visited {
   text-decoration: none;
+  color: green;
 }
 
 a:hover{
@@ -334,4 +335,19 @@ a:hover{
    border-top-color: #08141c;
    background: #08141c;
    }
+
+.followed_topic {
+  list-style-type: none;
+  text-align: left;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#followed_header{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  text-align: left;
+
 
