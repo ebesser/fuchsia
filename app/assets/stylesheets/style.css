@@ -227,20 +227,51 @@ div.panel {
     background-color:black;
 }
 div.home {
-    display:none;
-    font-family:arial;
-    color:white;
-    padding:50px;
-    overflow:hidden;
+  display:none;
+  font-family:arial;
+  color:white;
+  padding:50px;
+  overflow:hidden;
 }
 span.close {
-    position:absolute;
-    right:10px;
-    top:15px;
-    cursor:pointer;
+  position:absolute;
+  right:10px;
+  top:15px;
+  cursor:pointer;
 }
 
 #home {
   text-decoration: none;
   color:black;
 }
+
+#topic_list_wrapper {
+  margin-top: 4%;
+  width: 70%;
+  min-height: 350px;
+  margin: 0 auto;
+  background-color: lightgrey;
+  padding: 8px 0;
+}
+
+.topic_item {
+  background-color: white;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+.topic_title {
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+a, a:hover, a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+a:hover{
+  color: red;
+}
+
+

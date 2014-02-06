@@ -47,16 +47,23 @@ var against_comments_application = {
 
     $('.upvote').on('click', function(e){
       $(this).parent().data("comment").sync('upvote');
-    
+      against_comments_application.fetch(success_fnc_against);
     }),
 
     $('.downvote').on('click', function(e){
       $(this).parent().data("comment").sync('downvote');
+      against_comments_application.fetch(success_fnc_against);
     });
 
   }
 
 };
+
+  var success_fnc_against = function(){
+    against_comments_application.render()
+    against_comments_application.bind_buttons()
+  };
+
 
 // *********************************************
 //  Define AgainstComment
@@ -189,6 +196,7 @@ AgainstComment.prototype.sync = function(method, comment_data){
       self.update(data)
     })
 };
+
 
 
 $(function document_ready(){

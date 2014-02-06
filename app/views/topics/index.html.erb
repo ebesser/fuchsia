@@ -1,17 +1,18 @@
-<h1>Vitriol</h1>
+<h1 id="">Vitriol</h1>
 
 
 <% if current_user %>
   <div id="header" class="row">
     <input id="input_title" placeholder="title">
     <input id="input_link" placeholder="source link" value="http://">
+    <br />
     <textarea id="input_body" maxlength="600" placeholder="topic body"></textarea>
-
+    <br />
     <button class="add">Add Topic</button>
   </div>
 <% end %>
 
-<div class="row">
+<div id="topic_list_wrapper" class="row">
   <div id="current">
     <ul id="topics_list"></ul>
   </div>

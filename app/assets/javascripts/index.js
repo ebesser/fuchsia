@@ -66,12 +66,12 @@ function Topic(title, created_at, link, body, user_id, id){
 // Local give-me-the-html-for-current-list
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>", {class: "topic_item"});
-  new_div.append( $("<div>", {class: "topic_title"     })
+  new_div.append( $("<h1>", {class: "topic_title"     })
          .append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
   // new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>", {class: "topic_link"      })
-         .append('<a href="'+ this.link +'">'+ this.link.substring(0,20) + '</a>') );
+         .append('<a href="'+ this.link +'">'+ this.link.substring(0,30) + '</a>') );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
  
   if (window.user_id) {
@@ -124,6 +124,7 @@ Topic.prototype.sync = function(method, topic_data){
       data: {topic: topic_data}
     }
     break;
+
   case 'get':
     ajax_options = {
       url: '/topics/' + this.id,
@@ -131,6 +132,7 @@ Topic.prototype.sync = function(method, topic_data){
       method: 'get'
     }
     break;
+
   case 'update':
     ajax_options = {
       url: '/topics/' + this.id,
@@ -147,7 +149,7 @@ Topic.prototype.sync = function(method, topic_data){
     method: 'put', 
     data: {topic: topic_data, user: window.user_id}
   }
-  break; 
+    break; 
 
   case 'destroy':
     ajax_options = {
@@ -177,18 +179,21 @@ $(function document_ready(){
 
   var theUsername = $('#the_username');
   var theImgUrl = $('#the_user_img');
-  var user_id = window.user_id;
+  
+  if (window.user_id) {
+    var user_id = window.user_id;
 
-  $.ajax({
-    url: "/users/" + user_id,
-    type: "get",
-    dataType: "json",
-    success: (function(data){
-      theUsername.text(data.username);
-      theImgUrl.html('<img src="' + data.img_url + '">');
+    $.ajax({
+      url: "/users/" + user_id,
+      type: "get",
+      dataType: "json",
+      success: (function(data){
+        theUsername.text(data.username);
+        theImgUrl.html('<img src="' + data.img_url + '">');
+      })
+
     })
-
-  })
+  }
 
 
 

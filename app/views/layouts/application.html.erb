@@ -24,19 +24,16 @@
     <%= yield %>
   </div>
 
-
-<div class="panel">
-  <div class="home">
-    <span class="close">X</span>
-    <div id="the_username"></div>
-    <div id="the_user_img"></div>
-  </div>
-</div>
-<button><a id="home" href="#">My Profile</a></button>
-
-
-
   <% if current_user %>
+  <div class="panel">
+    <div class="home">
+      <span class="close">X</span>
+      <div id="the_username"></div>
+      <div id="the_user_img"></div>
+    </div>
+  </div>
+
+  <button><a id="home" href="#">My Profile</a></button>
     <script> window.user_id = <%= current_user.id %> </script>
     <script> window.username = "<%= current_user.username %>" </script>
     <script> window.img_url = "<%= current_user.img_url %>" </script>

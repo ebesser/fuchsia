@@ -24,6 +24,11 @@ Vitriol::Application.routes.draw do
     put "winner"
   end
 
+  resources :users do 
+    put "following"
+  end
+
+
   get '/shoot_mail' => 'home#shoot_mail'
 
   
