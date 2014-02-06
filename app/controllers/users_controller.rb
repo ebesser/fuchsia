@@ -17,16 +17,12 @@ class UsersController < ApplicationController
       format.json do
         user = User.find(params[:user_id])
         follows = Follow.where(user_id: user)
-        results_array = []
+        follows_array = []
         follows.each do |follow|
-          results_array << follow.topic_id.to_i
-        end 
-        topic_names = []
-        results_array.uniq.each do |i|
-          topic_names << Topic.find(i).title
+          follows_array << {:topic_id => follow.topic_id, :topic_name => Topic.find(follow.topic_id).title}
         end
-
-        render :json => topic_names
+        unique_follows = follows_array.uniq
+        render :json => unique_follows
       end
     end
   end

@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140203223955) do
     t.text     "body"
     t.text     "link"
     t.integer  "user_id"
+    t.string   "username"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

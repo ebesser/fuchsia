@@ -1,11 +1,10 @@
 'use strict';
 var against_comments_application = {
 
-  against_comments: [],
+  // against_comments: [],
 
   fetch: function(success_fnc){
     var self = this;
-    this.against_comments = [];
 
     $.ajax({
       url: '/against_comments', 
@@ -13,6 +12,8 @@ var against_comments_application = {
       method: 'get'
     })
       .success(function(data){
+        self.against_comments = [];
+        
         $(data).each(function(idx, comment_ele){
           var new_comment = new AgainstComment(
             comment_ele.body, 

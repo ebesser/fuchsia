@@ -5,6 +5,7 @@ class CreateTopics < ActiveRecord::Migration
       t.text :body
       t.text :link
       t.integer :user_id
+      t.string :username
       t.timestamps
     end
   end

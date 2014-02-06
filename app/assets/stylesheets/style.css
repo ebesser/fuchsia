@@ -267,6 +267,7 @@ span.close {
 
 .topic_item {
   background-color: white;
+  border-radius: 10px;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 8px;
@@ -279,4 +280,3 @@ span.close {
 
 a, a:hover, a:link, a:active, a:visited {text-decoration: none}
 
-a:hover{color: red}
