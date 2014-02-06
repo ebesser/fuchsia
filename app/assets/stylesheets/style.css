@@ -131,7 +131,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 #the_user_img img{
   border-radius: 25%;
-  float: left;
+  /*float: left;*/
   width: 200px;
   height: 200px;
 }
@@ -246,7 +246,10 @@ span.close {
 #home {
   text-decoration: none;
   color:black;
+  position:fixed;
+  top:40px;
 }
+
 
 #topic_list_wrapper {
   margin-top: 4%;
@@ -276,6 +279,19 @@ a, a:hover, a:link, a:active, a:visited {
 
 a:hover{
   color: red;
+}
+
+input {
+  width:70%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#input_body {
+  margin: 0 auto;
+  height:50px;
+  width: 80%;
+
 }
 
 
