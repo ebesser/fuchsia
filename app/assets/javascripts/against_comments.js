@@ -1,5 +1,3 @@
- // testestest
-
 'use strict';
 var against_comments_application = {
 
