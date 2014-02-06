@@ -14,7 +14,7 @@ $(function(){
           theTopic.text(data.title);
           if (data.link) {
             theLink.append( $("<div>", {class: "topic_link"      })
-                   .append('<a href="'+ data.link +'">'+ data.link.substring(0,20) + '</a>') );
+                   .append('<a href="'+ data.link +'">'+ data.link.substring(0,30) + '</a>') );
           }
           theBody.text(data.body);
           // console.log(data.title + " " + data.link + " " + data.body);
