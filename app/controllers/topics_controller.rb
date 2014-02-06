@@ -14,7 +14,8 @@ class TopicsController < ApplicationController
           title:   params['topic']['title'], 
           link:    params['topic']['link'], 
           body:    params['topic']['body'],
-          user_id: params['topic']['user_id']  
+          user_id: params['topic']['user_id'],
+          username: params['topic']['username']  
         )
         render :json => topic.to_json
       end

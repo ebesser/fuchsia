@@ -21,6 +21,7 @@ var topics_application = {
             topic_ele.link, 
             topic_ele.body, 
             topic_ele.user_id,
+            topic_ele.username,
             topic_ele.id
            );
           self.topics.push(new_topic)
@@ -54,12 +55,13 @@ var topics_application = {
 
 // *********************************************
 //  Define Topic
-function Topic(title, created_at, link, body, user_id, id){
+function Topic(title, created_at, link, body, user_id, username, id){
   this.title      = title;
   this.created_at = created_at;
   this.link       = link;
   this.body       = body;
   this.user_id    = user_id;
+  this.username   = username;
   this.id         = id;
 }
 
@@ -73,6 +75,8 @@ Topic.prototype.renderCurrent = function(){
   new_div.append( $("<div>", {class: "topic_link"      })
          .append('<a href="'+ this.link +'">'+ this.link.substring(0,30) + '</a>') );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
+
+  new_div.append( $("<div>", {class: "topic_username"      }).append(this.username) );
  
   if (window.user_id) {
     new_div.append( $("<button>", {class: "follow"       }).append("Follow"))
@@ -92,6 +96,7 @@ Topic.prototype.update = function(data){
   this.created_at = data.created_at
   this.link       = data.link
   this.body       = data.body
+  this.username   = data.username
   this.user_id    = data.user_id
 };
 
@@ -206,6 +211,7 @@ $(function document_ready(){
         title:    new_topic_title, 
         link:     new_topic_link, 
         body:     new_topic_body,
+        username: window.username,
         user_id:  window.user_id  
       });
       topics_application.fetch(success_fnc);
