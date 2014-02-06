@@ -1,13 +1,20 @@
 var bgGradient = function(winner){
+  var bg_gradient = $('#bg_gradient')
   console.log(winner); 
   if (winner == 1) {
-
+    bg_gradient.css({
+      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 75%, rgb(250, 255, 90) 75%)"
+    });
   }
   else if (winner == -1) {
-
+    bg_gradient.css({
+      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 25%, rgb(250, 255, 90) 25%)"
+    });
   }
   else if (winner == 0) {
-    
+    bg_gradient.css({
+      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%)"
+    });
   }
 }
 
@@ -22,4 +29,9 @@ $(function(){
       	bgGradient(data);
       })
   	})
+
+  buttonFor.on("click", function(e){
+    console.log("works");
+    punchFor();
+  });
 })
