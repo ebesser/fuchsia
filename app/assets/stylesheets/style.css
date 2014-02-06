@@ -239,34 +239,6 @@ body {
 
 button{z-index: 3}
 
-div.panel {
-  display:none;
-  position: absolute;
-  top: 0;
-  width:30%;
-  left:0%;
-  height: 100%;
-  z-index: 3;
-  margin: 0;
-  overflow:hidden;
-  background-color:black;
-}
-
-div.home {
-  display:none;
-  font-family:arial;
-  color:white;
-  padding:50px;
-  overflow:hidden;
-}
-
-span.close {
-  position:absolute;
-  right:10px;
-  top:15px;
-  cursor:pointer;
-}
-
 #home {
   text-decoration: none;
   color:black;
@@ -280,25 +252,27 @@ span.close {
   width: 70%;
   min-height: 350px;
   margin: 0 auto;
-  background-color: lightgrey;
+  background-color: #262626;
   padding: 8px 0;
 }
 
 .topic_item {
   background-color: white;
   border-radius: 10px;
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .topic_title {
   font-size: 2.5em;
   text-decoration: none;
+
 }
 
 a, a:hover, a:link, a:active, a:visited {
   text-decoration: none;
+  color: green;
 }
 
 a:hover{
@@ -317,6 +291,18 @@ a:hover{
   width: 83.5%;
 }
 
+.sign_in {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.sign_in_wrapper {
+  background-color: #262626;
+  padding:10px;
+  width:60%;
+  margin:0 auto;
+  margin-top:10%;
+}
 
 /*button trials */
 
@@ -351,3 +337,19 @@ a:hover{
    border-top-color: #08141c;
    background: #08141c;
    }
+
+.followed_topic {
+  list-style-type: none;
+  text-align: left;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#followed_header{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  text-align: left;
+
+

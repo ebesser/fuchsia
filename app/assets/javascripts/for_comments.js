@@ -64,8 +64,6 @@ var success_fnc_for = function(){
 };
 
 
-
-
 // *********************************************
 //  Define ForComment
 function ForComment(body, created_at, user_id, username, img_url, topic_id, rank, id){
@@ -146,7 +144,10 @@ ForComment.prototype.sync = function(method, comment_data){
       url: '/for_comments',
       dataType: 'json',
       method: 'post',
-      data: {comment: comment_data}
+      data: {comment: comment_data},
+      success: function(){
+       for_comments_application.fetch(success_fnc_for);
+      }
     }
     break;
 
@@ -223,7 +224,6 @@ $(function document_ready(){
         img_url:  window.img_url,
         topic_id: window.location.pathname.replace("/topics/", "")
       });
-      for_comments_application.fetch(success_fnc);
     }
     
   });
