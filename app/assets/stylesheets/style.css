@@ -264,16 +264,16 @@ span.close {
   width: 70%;
   min-height: 350px;
   margin: 0 auto;
-  background-color: lightgrey;
+  background-color: #262626;
   padding: 8px 0;
 }
 
 .topic_item {
   background-color: white;
   border-radius: 10px;
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .topic_title {
@@ -301,3 +301,15 @@ a:hover{
   width: 83.5%;
 }
 
+.sign_in {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.sign_in_wrapper {
+  background-color: #262626;
+  padding:10px;
+  width:60%;
+  margin:0 auto;
+  margin-top:10%;
+}

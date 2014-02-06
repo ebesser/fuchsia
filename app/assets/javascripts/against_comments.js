@@ -13,7 +13,7 @@ var against_comments_application = {
     })
       .success(function(data){
         self.against_comments = [];
-        
+
         $(data).each(function(idx, comment_ele){
           var new_comment = new AgainstComment(
             comment_ele.body, 
@@ -145,7 +145,10 @@ AgainstComment.prototype.sync = function(method, comment_data){
       url: '/against_comments',
       dataType: 'json',
       method: 'post',
-      data: {comment: comment_data}
+      data: {comment: comment_data}, 
+      success: function(){
+       against_comments_application.fetch(success_fnc_against);
+      }
     }
     break;
 
@@ -223,7 +226,6 @@ $(function document_ready(){
         img_url:  window.img_url,
         topic_id: window.location.pathname.replace("/topics/", "") 
       });
-      against_comments_application.fetch(success_fnc);
     }
 
   });
