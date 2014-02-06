@@ -173,6 +173,29 @@ $(function document_ready(){
   topics_application.fetch(success_fnc);
 
 
+  var theUsername = $('#the_username');
+  var theImgUrl = $('#the_user_img');
+  var user_id = window.user_id;
+
+  $.ajax({
+    url: "/users/" + user_id,
+    type: "get",
+    dataType: "json",
+    success: (function(data){
+      theUsername.text(data.username);
+      theImgUrl.html('<img src="' + data.img_url + '">');
+    })
+  })
+
+
+
+
+
+
+
+
+
+
   $('.add').on('click', function(e){
     var new_topic_title = $('#input_title').val();  
     var new_topic_link  = $('#input_link').val(); 

@@ -125,6 +125,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 50px;
 }
 
+#the_user_img img{
+  border-radius: 25%;
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
 .comment_body {
   padding: 5px 15px;
   max-width: 95%;

@@ -13,7 +13,7 @@ $(function(){
         theTopic.text(data.title);
         theLink.text(data.link);
         theBody.text(data.body);
-        console.log(data.title + " " + data.link + " " + data.body);
+        // console.log(data.title + " " + data.link + " " + data.body);
     })
   })
 })

@@ -8,7 +8,7 @@ Vitriol::Application.routes.draw do
   resources :topics, only: [:index, :create, :destroy, :show, :update]
   resources :for_comments, only: [:index, :create, :destroy, :show, :update]
   resources :against_comments, only: [:index, :create, :destroy, :show, :update]
-  
+  resources :users, only: [:index, :show]
   resources :for_comments do
     put "upvote"
     put "downvote"
