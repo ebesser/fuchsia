@@ -12,8 +12,8 @@ var punchFor = function(){
         backgroundPosition: "0px -279px",
       })
     })
-    .delay(100)
-    .animate({marginLeft: "150px"},100, function(){
+    .delay(60)
+    .animate({marginLeft: "150px"},50, function(){
       $(this).css({
         backgroundPosition: "-269px 0px",
         width: "145px"
@@ -46,8 +46,8 @@ var punchAgainst = function(){
         backgroundPosition: "0px -279px",
       })
     })
-    .delay(100)
-    .animate({marginLeft: "-150px"},100, function(){
+    .delay(60)
+    .animate({marginLeft: "-150px"},50, function(){
       $(this).css({
         backgroundPosition: "0px 0px",
         width: "145px"
