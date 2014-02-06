@@ -239,3 +239,8 @@ span.close {
     top:15px;
     cursor:pointer;
 }
+
+#home {
+  text-decoration: none;
+  color:black;
+}
