@@ -18,6 +18,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 html {
   min-height: 100%;
   position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -48,7 +50,10 @@ body {
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
-#the_topic {font-size: 2.5em}
+#the_topic {font-size: 2.5em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+}
 
 /*The Fighters = The two columns of comments*/
 
@@ -293,6 +298,8 @@ span.close {
 .topic_title {
   font-size: 2.5em;
   text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 a, a:hover, a:link, a:active, a:visited {
@@ -361,3 +368,9 @@ a:hover{
    border-top-color: #08141c;
    background: #08141c;
    }
+
+
+#the_username {
+font-family: 'Oswald', sans-serif;
+font-weight: 400;
+}
