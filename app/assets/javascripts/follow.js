@@ -11,7 +11,7 @@
         data: {user_id: window.user_id},
         success: (function(data){
           for(var i in data){
-            $('.home').append("<div>"+data[i]+"</div>")
+            $('#followed_topics').append( $("<li>", {class: "followed_topic"}).append(data[i]) );
           }
           
         })

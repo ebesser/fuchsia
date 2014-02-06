@@ -196,7 +196,6 @@ $(function document_ready(){
   }
 
 
-
   $('.add').on('click', function(e){
     var new_topic_title = $('#input_title').val();  
     var new_topic_link  = $('#input_link').val(); 
