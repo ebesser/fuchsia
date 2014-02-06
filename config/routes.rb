@@ -23,6 +23,11 @@ Vitriol::Application.routes.draw do
     put "follow"
   end
 
+  resources :users do 
+    put "following"
+  end
+
+
   get '/shoot_mail' => 'home#shoot_mail'
 
   # The priority is based upon order of creation:
