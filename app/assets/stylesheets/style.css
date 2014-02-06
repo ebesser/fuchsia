@@ -126,6 +126,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 50px;
 }
 
+#the_user_img img{
+  border-radius: 25%;
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
 .comment_body {
   padding: 5px 15px;
   max-width: 95%;
@@ -192,10 +199,43 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   float: left;
   margin-left: 4%;
   padding: 10px 15px;
+  z-index: 3;
 }
 
 #against_comment_box {
   float: right;
   margin-right: 4%;
   padding: 10px 15px;
+  z-index: 3;
+}
+
+button{
+  z-index: 3;
+}
+
+
+div.panel {
+  display:none;
+  position: absolute;
+  top: 0;
+  width:30%;
+  left:0%;
+  height: 100%;
+  z-index: 3;
+  margin: 0;
+  overflow:hidden;
+    background-color:black;
+}
+div.home {
+    display:none;
+    font-family:arial;
+    color:white;
+    padding:50px;
+    overflow:hidden;
+}
+span.close {
+    position:absolute;
+    right:10px;
+    top:15px;
+    cursor:pointer;
 }

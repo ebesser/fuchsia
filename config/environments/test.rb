@@ -34,4 +34,14 @@ Vitriol::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "vitriol.herokuapp.com",
+    :user_name => ENV['MAILGUN_EMAIL'],
+    :password => ENV['MAILGUN_PASSWORD']
+  }
 end

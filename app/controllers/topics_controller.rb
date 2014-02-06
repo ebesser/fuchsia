@@ -10,11 +10,12 @@ class TopicsController < ApplicationController
   def create
     respond_to do |format|
       format.json do 
-        topic = Topic.create( title:   params['topic']['title'], 
-                              link:    params['topic']['link'], 
-                              body:    params['topic']['body'],
-                              user_id: params['topic']['user_id']  
-                            )
+        topic = Topic.create( 
+          title:   params['topic']['title'], 
+          link:    params['topic']['link'], 
+          body:    params['topic']['body'],
+          user_id: params['topic']['user_id']  
+        )
         render :json => topic.to_json
       end
     end
@@ -35,6 +36,23 @@ class TopicsController < ApplicationController
       end
     end
   end
+
+
+  def follow
+     respond_to do |format|
+      format.html do
+        # if params.class = Integer
+
+        follow = Follow.new
+        follow.user_id = params['user']
+        follow.topic_id = params['topic_id']
+        follow.save!
+
+        render :json => follow.to_json
+      end
+    end
+  end
+
 
   def destroy
     respond_to do |format|

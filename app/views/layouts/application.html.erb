@@ -23,6 +23,23 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
+
+
+<div class="panel">
+  <div class="home">
+    <span class="close">X</span>
+    <div id="the_username"></div>
+    <div id="the_user_img"></div>
+  </div>
+</div>
+<button><a id="home" href="#">Home</a></button>
+
+
+
+
+
+
+
   <% if current_user %>
     <script> window.user_id = <%= current_user.id %> </script>
     <script> window.username = "<%= current_user.username %>" </script>

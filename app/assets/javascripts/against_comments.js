@@ -32,7 +32,7 @@ var against_comments_application = {
 
   render: function(){
     $('#the_against_comments').empty()
-    var commentsReversed = $(this.against_comments).sort(function(a,b){ return b["id"] - a["id"] });
+    var commentsReversed = $(this.against_comments).sort(function(a,b){ return b["rank"] - a["rank"] });
 
     commentsReversed.each(function(idx, comment){   
     $('#the_against_comments').append(comment.renderCurrent());
@@ -43,7 +43,17 @@ var against_comments_application = {
     $('.remove').on('click', function(e){
       $(this).parent().data("comment").sync('destroy');
       $(this).parent().remove();
+    }),
+
+    $('.upvote').on('click', function(e){
+      $(this).parent().data("comment").sync('upvote');
+    
+    }),
+
+    $('.downvote').on('click', function(e){
+      $(this).parent().data("comment").sync('downvote');
     });
+
   }
 
 };
@@ -70,9 +80,20 @@ AgainstComment.prototype.renderCurrent = function(){
     new_li.append( $("<h3>").append(this.username) );
     new_li.append( $("<p>").append(this.created_at) ); 
     new_li.append( $("<p>").addClass("comment_body").append(this.body) ); 
-    if (window.user_id === this.user_id) {
-      new_li.append( $("<button>", {class: "remove"}).append("&#10007;") );
+    if (window.user_id) {
+      new_li.append( $("<button>", {class: "upvote"  }).append("+") );
     }
+
+    new_li.append(   $("<span>",   {class: "rank"    }).append(this.rank - 100) ); 
+    
+    if (window.user_id) {
+      new_li.append( $("<button>", {class: "downvote"}).append("-") );
+    }
+    
+    if (window.user_id === this.user_id) { 
+      new_li.append( $("<button>", {class: "remove"  }).append("&#10007;") );
+    }
+    
     new_li.data("comment", this);
     return new_li;
   }
@@ -119,6 +140,7 @@ AgainstComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break;
+
   case 'get':
     ajax_options = {
       url: '/against_comments/' + this.id,
@@ -126,6 +148,7 @@ AgainstComment.prototype.sync = function(method, comment_data){
       method: 'get'
     }
     break;
+
   case 'update':
     ajax_options = {
       url: '/against_comments/' + this.id,
@@ -134,6 +157,25 @@ AgainstComment.prototype.sync = function(method, comment_data){
       data: {comment: comment_data}
     }
     break;
+
+  case 'upvote':
+  ajax_options = {
+    url: '/against_comments/' + this.id + '/upvote',
+    dataType: 'json',
+    method: 'put', 
+    data: {comment: comment_data}
+  }
+  break;
+    
+   case 'downvote':
+    ajax_options = {
+      url: '/against_comments/' + this.id + '/downvote',
+      dataType: 'json',
+      method: 'put', 
+      data: {comment: comment_data}
+    }
+    break; 
+    
   case 'destroy':
     ajax_options = {
       url: '/against_comments/' + this.id,
@@ -161,7 +203,8 @@ $(function document_ready(){
 
 
   $('#button_against').on('click', function(e){
-    var new_comment_body = $('#input_against').val();  
+    var new_comment_body = $('#input_against').val();
+    $('#input_against').val("");  
     if (new_comment_body.length > 0){
       var new_comment = new AgainstComment();
       new_comment.sync('create', { 

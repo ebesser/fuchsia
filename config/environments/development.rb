@@ -35,4 +35,16 @@ Vitriol::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "vitriol.herokuapp.com",
+    :user_name => ENV['MAILGUN_EMAIL'],
+    :password => ENV['MAILGUN_PASSWORD']
+  }
+
+
 end

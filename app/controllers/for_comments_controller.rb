@@ -15,8 +15,7 @@ class ForCommentsController < ApplicationController
           user_id:  params['comment']['user_id'],
           username: params['comment']['username'],
           img_url:  params['comment']['img_url'],
-          topic_id: params['comment']['topic_id'],
-          rank:     params['comment']['rank']
+          topic_id: params['comment']['topic_id']
         )
         render :json => comment.to_json
       end
@@ -32,6 +31,28 @@ class ForCommentsController < ApplicationController
       format.json do
         comment = ForComment.find(params[:id])
         comment.destroy
+        render :json => comment.to_json
+      end
+    end
+  end
+
+  def upvote
+     respond_to do |format|
+      format.html do
+        comment = ForComment.find(params[:for_comment_id])
+        comment.increment(:rank)
+        comment.save!
+        render :json => comment.to_json
+      end
+    end
+  end
+
+  def downvote
+    respond_to do |format|
+      format.html do
+        comment = ForComment.find(params[:for_comment_id])
+        comment.decrement(:rank)
+        comment.save!
         render :json => comment.to_json
       end
     end

@@ -43,6 +43,11 @@ var topics_application = {
       $(this).parent().data("topic").sync('destroy');
       $(this).parent().remove();
     });
+  
+    $('.follow').on('click', function(e){
+      $(this).parent().data("topic").sync('follow');
+    });
+
   }
 
 };
@@ -62,13 +67,16 @@ function Topic(title, created_at, link, body, user_id, id){
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>", {class: "topic_item"});
   new_div.append( $("<div>", {class: "topic_title"     }).append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
-  new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
+  // new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>", {class: "topic_link"      }).append(this.link) );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
-
+ 
+  if (window.user_id) {
+    new_div.append( $("<button>", {class: "follow"       }).append("Follow"))
+  }
   if (window.user_id === this.user_id) {
-    new_div.append( $("<button>", {class: "remove"}).append("&#10007;") );
+    new_div.append( $("<button>", {class: "remove"  }).append("&#10007;") );
   }
 
   new_div.data("topic", this);
@@ -129,6 +137,16 @@ Topic.prototype.sync = function(method, topic_data){
       data: {topic: topic_data}
     }
     break;
+
+  case 'follow':
+  ajax_options = {
+    url: '/topics/' + this.id + '/follow',
+    dataType: 'json',
+    method: 'put', 
+    data: {topic: topic_data, user: window.user_id}
+  }
+  break; 
+
   case 'destroy':
     ajax_options = {
       url: '/topics/' + this.id,
@@ -153,6 +171,32 @@ $(function document_ready(){
   };
 
   topics_application.fetch(success_fnc);
+
+
+  var theUsername = $('#the_username');
+  var theImgUrl = $('#the_user_img');
+  var user_id = window.user_id;
+
+  $.ajax({
+    url: "/users/" + user_id,
+    type: "get",
+    dataType: "json",
+    success: (function(data){
+      theUsername.text(data.username);
+      theImgUrl.html('<img src="' + data.img_url + '">');
+    })
+
+
+    
+  })
+
+
+
+
+
+
+
+
 
 
   $('.add').on('click', function(e){
