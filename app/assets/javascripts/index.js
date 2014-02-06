@@ -185,6 +185,9 @@ $(function document_ready(){
       theUsername.text(data.username);
       theImgUrl.html('<img src="' + data.img_url + '">');
     })
+
+
+    
   })
 
 

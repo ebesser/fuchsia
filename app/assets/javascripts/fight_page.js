@@ -9,7 +9,6 @@ $(function(){
     type: "get",
     dataType: "json",
     success: (function(data){
-        console.log(data);
         theTopic.text(data.title);
         theLink.text(data.link);
         theBody.text(data.body);

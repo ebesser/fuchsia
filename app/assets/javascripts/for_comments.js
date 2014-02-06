@@ -1,6 +1,5 @@
 'use strict';
 var for_comments_application = {
-
   for_comments: [],
 
   fetch: function(success_fnc){
@@ -40,6 +39,7 @@ var for_comments_application = {
   },
 
   bind_buttons: function(){
+    // var self = this;
     $('.remove').on('click', function(e){
       $(this).parent().data("comment").sync('destroy');
       $(this).parent().remove();
@@ -47,11 +47,13 @@ var for_comments_application = {
 
     $('.upvote').on('click', function(e){
       $(this).parent().data("comment").sync('upvote');
-    
+      for_comments_application.fetch(success_fnc);
     }),
 
     $('.downvote').on('click', function(e){
       $(this).parent().data("comment").sync('downvote');
+      for_comments_application.fetch(success_fnc);
+      // self.fetch(self.render);
     });
 
     // $('#follow').on('click', function(e){
@@ -204,6 +206,13 @@ ForComment.prototype.sync = function(method, comment_data){
       self.update(data)
     })
 };
+
+var success_fnc = function(){
+  for_comments_application.render()
+  for_comments_application.bind_buttons()
+};
+
+
 
 
 $(function document_ready(){
