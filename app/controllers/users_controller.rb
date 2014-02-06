@@ -21,11 +21,15 @@ class UsersController < ApplicationController
         follows.each do |follow|
           results_array << follow.topic_id.to_i
         end 
-        render :json => Follow.where(user_id: user)
+        topic_names = []
+        results_array.uniq.each do |i|
+          topic_names << Topic.find(i).title
+        end
+
+        render :json => topic_names
       end
     end
   end
-
 
 
 end

@@ -7,7 +7,11 @@ $(function(){
     dataType: "json",
     data: {user_id: window.user_id},
     success: (function(data){
-      console.log(data[0].topic_id)
+      console.log(data)
+      for(var i in data){
+        $('.home').append("<div>"+data[i]+"</div>")
+      }
+      
     })
   })
 })

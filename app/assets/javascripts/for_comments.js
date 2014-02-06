@@ -39,7 +39,6 @@ var for_comments_application = {
   },
 
   bind_buttons: function(){
-    // var self = this;
     $('.remove').on('click', function(e){
       $(this).parent().data("comment").sync('destroy');
       $(this).parent().remove();
@@ -47,22 +46,25 @@ var for_comments_application = {
 
     $('.upvote').on('click', function(e){
       $(this).parent().data("comment").sync('upvote');
-      for_comments_application.fetch(success_fnc);
+      for_comments_application.fetch(success_fnc_for);
     }),
 
     $('.downvote').on('click', function(e){
       $(this).parent().data("comment").sync('downvote');
-      for_comments_application.fetch(success_fnc);
-      // self.fetch(self.render);
+      for_comments_application.fetch(success_fnc_for);
     });
-
-    // $('#follow').on('click', function(e){
-
-    // });
 
   }
 
 };
+
+var success_fnc_for = function(){
+  for_comments_application.render()
+  for_comments_application.bind_buttons()
+};
+
+
+
 
 // *********************************************
 //  Define ForComment
@@ -183,16 +185,6 @@ ForComment.prototype.sync = function(method, comment_data){
     }
     break; 
 
-  // case 'follow':
-  // ajax_options = {
-  //   url: '/topics/' + this.topic_id + '/follow',
-  //   dataType: 'json',
-  //   method: 'put', 
-  //   data: {topic: topic_data, user: window.user_id}
-  //   console.log("This is the result of the follow:" + data)
-  // }
-  // break; 
-
   case 'destroy':
     ajax_options = {
       url: '/for_comments/' + this.id,
@@ -206,13 +198,6 @@ ForComment.prototype.sync = function(method, comment_data){
       self.update(data)
     })
 };
-
-var success_fnc = function(){
-  for_comments_application.render()
-  for_comments_application.bind_buttons()
-};
-
-
 
 
 $(function document_ready(){

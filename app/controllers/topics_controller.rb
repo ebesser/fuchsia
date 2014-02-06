@@ -59,6 +59,12 @@ class TopicsController < ApplicationController
       format.json do
         topic = Topic.find(params[:id])
         topic.destroy
+        follow_arr = [];
+        follow_arr = Follow.where(topic_id: params[:id])
+        follow_arr.each do |follow|
+          follow.destroy
+        end
+
         render :json => topic.to_json
       end
     end
