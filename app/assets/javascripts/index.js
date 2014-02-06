@@ -124,6 +124,7 @@ Topic.prototype.sync = function(method, topic_data){
       data: {topic: topic_data}
     }
     break;
+
   case 'get':
     ajax_options = {
       url: '/topics/' + this.id,
@@ -131,6 +132,7 @@ Topic.prototype.sync = function(method, topic_data){
       method: 'get'
     }
     break;
+
   case 'update':
     ajax_options = {
       url: '/topics/' + this.id,
@@ -147,7 +149,7 @@ Topic.prototype.sync = function(method, topic_data){
     method: 'put', 
     data: {topic: topic_data, user: window.user_id}
   }
-  break; 
+    break; 
 
   case 'destroy':
     ajax_options = {
@@ -177,18 +179,21 @@ $(function document_ready(){
 
   var theUsername = $('#the_username');
   var theImgUrl = $('#the_user_img');
-  var user_id = window.user_id;
+  
+  if (window.user_id) {
+    var user_id = window.user_id;
 
-  $.ajax({
-    url: "/users/" + user_id,
-    type: "get",
-    dataType: "json",
-    success: (function(data){
-      theUsername.text(data.username);
-      theImgUrl.html('<img src="' + data.img_url + '">');
+    $.ajax({
+      url: "/users/" + user_id,
+      type: "get",
+      dataType: "json",
+      success: (function(data){
+        theUsername.text(data.username);
+        theImgUrl.html('<img src="' + data.img_url + '">');
+      })
+
     })
-
-  })
+  }
 
 
 
