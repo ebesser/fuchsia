@@ -1,9 +1,26 @@
 /* html5doctor.com Reset v1.6.1 - http://cssreset.com */
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+}
+
 #wrapper {
   text-align: center;
   margin: 0 auto;
+}
+
+#bg_gradient {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
 
 /*The Title Bar*/
@@ -14,12 +31,10 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 10%;
   position: fixed;
   z-index: 2;
-  box-shadow: 0px 5px 3px darkgrey;
+  box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
-#the_topic {
-  font-size: 2.5em;
-}
+#the_topic {font-size: 2.5em}
 
 /*The Fighters = The two columns of comments*/
 
@@ -40,14 +55,14 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   background-color: #94161b;
   height: 100%;
   float: left;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 10px 10px 10px rgba(139, 136, 120, 0.5);
 }
 
 #fighter2 {
   background-color: #262626;
   height: 100%;
   float: right;
-  box-shadow: -10px 10px 10px grey;
+  box-shadow: -10px 10px 10px rgba(139, 136, 120, 0.5);
 }
 
 /*The animated fists*/
@@ -67,9 +82,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 150px;
 }
 
-#against_fists {
-  margin-left: 19%;
-}
+#against_fists {margin-left: 19%}
 
 #for_fist_front { 
   background:url("for_fist_front.png");
@@ -140,7 +153,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   padding: 5px 15px;
   max-width: 95%;
   text-align: justify;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 /*The text inside of the new comment box banner*/
@@ -150,9 +163,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   margin: 0 auto;
 }
 
-.the_arguments {
-  display: inline-block;
-}
+.the_arguments {display: inline-block}
 
 #for_text {
   padding: 4px;
@@ -176,7 +187,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   height: 15%;
   bottom: 10%;
   position: fixed;
-  box-shadow: 0px 5px 3px darkgrey;
+  box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 
 }
 
@@ -191,12 +202,10 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 #the_comment_boxes div {
   background-color: lightgrey;
   width: 25%;
-  box-shadow: 0px 5px 3px black;
+  box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
-#the_comment_boxes textarea {
-  width: 90%;
-}
+#the_comment_boxes textarea {width: 90%}
 
 #for_comment_box {
   float: left;
@@ -212,10 +221,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   z-index: 3;
 }
 
-button{
-  z-index: 3;
-}
-
+button{z-index: 3}
 
 div.panel {
   display:none;
@@ -227,8 +233,9 @@ div.panel {
   z-index: 3;
   margin: 0;
   overflow:hidden;
-    background-color:black;
+  background-color:black;
 }
+
 div.home {
   display:none;
   font-family:arial;
@@ -236,6 +243,7 @@ div.home {
   padding:50px;
   overflow:hidden;
 }
+
 span.close {
   position:absolute;
   right:10px;
@@ -269,12 +277,6 @@ span.close {
   text-decoration: none;
 }
 
-a, a:hover, a:link, a:active, a:visited {
-  text-decoration: none;
-}
+a, a:hover, a:link, a:active, a:visited {text-decoration: none}
 
-a:hover{
-  color: red;
-}
-
-
+a:hover{color: red}
