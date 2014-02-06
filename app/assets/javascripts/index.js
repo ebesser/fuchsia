@@ -73,7 +73,7 @@ Topic.prototype.renderCurrent = function(){
   // new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
   new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
   new_div.append( $("<div>", {class: "topic_link"      })
-         .append('<a href="'+ this.link +'">'+ this.link.substring(0,30) + '</a>') );
+         .append('<a href="'+ this.link +'" target="_blank">'+ this.link.substring(0,30) + '</a>') );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
 
   new_div.append( $("<div>", {class: "topic_username"      }).append(this.username) );
