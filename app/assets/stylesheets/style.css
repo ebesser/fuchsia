@@ -223,7 +223,7 @@ div.panel {
   top: 0;
   width:30%;
   left:0%;
-  height: 100%;
+  min-height: 100%;
   z-index: 3;
   margin: 0;
   overflow:hidden;
@@ -281,7 +281,7 @@ a:hover{
   color: red;
 }
 
-input {
+#input_title, #input_link {
   width:70%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -290,10 +290,13 @@ input {
 #input_body {
   margin: 0 auto;
   height:50px;
-  width: 80%;
-
+  width: 83.5%;
 }
 
+
+#the_user_name {
+
+}
 
 
 
