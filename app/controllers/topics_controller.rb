@@ -41,18 +41,19 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.json do
 
-      for_comments = ForComment.where(params[:topic_id])
-      against_comments = AgainstComment.where(topic_id: params[:id])
+        for_comments = ForComment.where(topic_id: params[:topic_id])
+        against_comments = AgainstComment.where(topic_id: params[:topic_id])
 
-      if for_comments.count > against_comments.count
-        # red wind
-      elsif for_comments.count < against_comments.count
-        # yellow wins
-      elsif for_comments.count == against_comments.count
-        #tie
-      end 
+        if for_comments.count > against_comments.count
+          winner = 1
+        elsif for_comments.count < against_comments.count
+          winner = -1
+        elsif for_comments.count == against_comments.count
+          winner = 0
+        end 
 
-      render :json => winner #set winner to a thing
+        render :json => winner.to_json
+      end
     end
   end
 

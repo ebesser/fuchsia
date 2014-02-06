@@ -37,15 +37,17 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #fighter1 {
-  background-color: darkgrey;
+  background-color: #94161b;
   height: 100%;
   float: left;
+  box-shadow: 10px 10px 10px grey;
 }
 
 #fighter2 {
-  background-color: darkgrey;
+  background-color: #262626;
   height: 100%;
   float: right;
+  box-shadow: -10px 10px 10px grey;
 }
 
 /*The animated fists*/
@@ -107,6 +109,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 .the_comments li {
   background-color: white;
+  border-radius: 5px;
   padding: 10px 0;
   margin: 8px 0;
 }
