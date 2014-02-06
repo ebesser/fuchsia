@@ -237,34 +237,6 @@ body {
 
 button{z-index: 3}
 
-div.panel {
-  display:none;
-  position: absolute;
-  top: 0;
-  width:30%;
-  left:0%;
-  height: 100%;
-  z-index: 3;
-  margin: 0;
-  overflow:hidden;
-  background-color:black;
-}
-
-div.home {
-  display:none;
-  font-family:arial;
-  color:white;
-  padding:50px;
-  overflow:hidden;
-}
-
-span.close {
-  position:absolute;
-  right:10px;
-  top:15px;
-  cursor:pointer;
-}
-
 #home {
   text-decoration: none;
   color:black;
@@ -293,6 +265,7 @@ span.close {
 .topic_title {
   font-size: 2.5em;
   text-decoration: none;
+
 }
 
 a, a:hover, a:link, a:active, a:visited {
@@ -361,3 +334,4 @@ a:hover{
    border-top-color: #08141c;
    background: #08141c;
    }
+
