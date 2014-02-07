@@ -10,7 +10,7 @@ $(function(){
       success: (function(data){
         for (i in data) {
           var new_li =  $("<li>", {class: "followed_topic"});
-          new_li.append("<a href='/topics/" + data[i]['topic_id'] + "'>" + data[i]['topic_name'] + "</a>");
+          new_li.append("<a href='/topics/" + data[i]['topic_id'] + "'>" + data[i]['topic_name'] + "</a><hr>");
         
           $('.home').append(new_li);
         }             
