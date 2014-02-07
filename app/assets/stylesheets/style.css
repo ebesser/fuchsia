@@ -74,6 +74,11 @@ body {
   font-weight: 700;
 }
 
+#statement {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 10px;
+}
 
 /*The Fighters = The two columns of comments*/
 
@@ -99,7 +104,7 @@ body {
 }
 
 #fighter2 {
-  background-color: #94161b;
+  background-color: #262626;
   height: 100%;
   float: right;
   box-shadow: -10px 10px 10px rgba(139, 136, 120, 0.5);
@@ -270,6 +275,14 @@ body {
   margin-right: 4%;
   padding: 10px 15px;
   z-index: 3;
+}
+
+#vs_circle {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background color: white;
+  border-radius: 100%;
 }
 
 button {
