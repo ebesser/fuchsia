@@ -89,9 +89,16 @@ ForComment.prototype.renderCurrent = function(){
     if (window.user_id) {
       new_li.append( $("<button>", {class: "upvote"  }).append("+") );
     }
-
-    new_li.append(   $("<span>",   {class: "rank"    }).append(this.rank - 100) ); 
-    
+    //Color the rank green or red depending on if it's positive or negative
+    var new_span = $("<span>",   {class: "rank"    });
+    new_span.append( this.rank - 100);
+    if (this.rank >= 100 ) {
+      new_span.css('color', 'limegreen');
+    } else {
+      new_span.css('color', 'red');
+    }
+    new_li.append( new_span ); 
+  
     if (window.user_id) {
       new_li.append( $("<button>", {class: "downvote"}).append("-") );
     }
@@ -101,6 +108,8 @@ ForComment.prototype.renderCurrent = function(){
     }
     
     new_li.data("comment", this);
+    // console.log($('.rank').text)
+    
     return new_li;
   }
 
