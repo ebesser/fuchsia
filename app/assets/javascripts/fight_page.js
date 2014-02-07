@@ -4,7 +4,7 @@ $(function(){
   var theBody = $('#the_description');
   var theUser = $('#topic_submitter');
   
-  if (window.location.pathname.indexOf("topics") >= 0 && window.location.pathname.indexOf("winner") === undefined ) {
+  if (window.location.pathname.indexOf("topics") >= 0 ) {
     var topic_id = window.location.pathname.replace("/topics/", "")
 
     $.ajax({
@@ -16,7 +16,7 @@ $(function(){
           theUser.text("Submited By: "+data.username);
           if (data.link) {
             theLink.append( $("<div>", {class: "topic_link"      })
-                   .append('<a href="'+ data.link +'" target="_blank">'+ data.link.substring(0,30) + '</a>') );
+                   .append('<a href="'+ data.link +'" target="_blank">'+ data.link + '</a>') );
           }
           theBody.text(data.body);
           // console.log(data.title + " " + data.link + " " + data.body);

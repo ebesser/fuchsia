@@ -9,15 +9,15 @@ div.panel {
   z-index: 3;
   margin: 0;
   overflow:hidden;
-    background-color:black;
+  background-color:black;
 }
 div.home {
-    display:none;
-    font-family:arial;
-    color:white;
-    padding:50px;
-    overflow:hidden;
-    text-align: center;
+  display:none;
+  font-family:arial;
+  color:white;
+  padding:50px;
+  overflow:hidden;
+  text-align: center;
 }
 span.close {
     position:absolute;
