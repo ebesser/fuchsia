@@ -347,7 +347,7 @@ a:hover{
 
 #signin {
   z-index: 4;
-  float: right;
+  /*float: right;*/
 }
 
 
@@ -356,8 +356,21 @@ a:hover{
   padding: 3px;
   background-color: white;
   border-radius: 5px;
+  float:right;
 }
-
+#signin a {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+.top_buttons a{
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+  float:right;
+}
 
 .sign_in {
   background-color: white;
