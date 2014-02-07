@@ -207,100 +207,56 @@ body {
   overflow: hidden;
 }
 
-/*The text inside of the new comment box banner*/
-
-#the_arguments {
-  width: 75%;
-  margin: 0 auto;
-  margin-top: -80px;
-}
-
-.the_arguments {
-  display: inline-block;
-}
-
-#for_text {
-  padding: 4px;
-  float:left;
-  margin-left: 8%;
-  font-size: 3em;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-}
-
-#against_text {
-  padding: 4px;
-  float: right;
-  margin-right: 4.5%;
-  font-size: 3em;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-}
-
 /*The banner that holds the new comment boxes*/
 
 #comment_bar {
-  background-color: grey;
-  width: 100%;
-  height: 15%;
-  bottom: 10%;
+  width: 1100px;
+  height: 197px;
+  bottom: 4%;
   position: fixed;
-  box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
-
+  background: url("banner.png");
+  margin-left: 8%;
+  z-index: 2;
 }
 
 #the_comment_boxes {
   width: 85%;
   margin: 0 auto;
-  bottom: 6%;
+  bottom: 4%;
   position: fixed;
   margin-left: 7%;
+  z-index: 3;
 }
 
 #the_comment_boxes div {
-  background-color: lightgrey;
+  background-color: darkgrey;
   width: 25%;
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
+  border-radius: 5px;
+  z-index: 3;
 }
 
 #the_comment_boxes textarea {
   width: 90%;
+  z-index: 3;
 }
 
 #for_comment_box {
   float: left;
   margin-left: 4%;
   padding: 10px 15px;
-  z-index: 3;
+  z-index: 4;
 }
 
 #against_comment_box {
   float: right;
   margin-right: 4%;
   padding: 10px 15px;
-  z-index: 3;
-}
-
-#vs_circle {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background-color: darkgrey;
-  border: 3px solid white;
-  border-radius: 100%;
-  margin-top: -35px;
-  padding: 5px;
-}
-
-#vs_circle h1 {
-  color: white;
-  font-size: 4.5em;
-  text-align: center;
-  margin-top: 15%;
+  z-index: 4;
 }
 
 button {
-  z-index: 3;
+  z-index: 4;
 }
 
 
