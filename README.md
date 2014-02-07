@@ -1,4 +1,4 @@
-#[Vitriall](http://vitriol.herokuapp.com/)
+#[Vitriol](http://vitriol.herokuapp.com/)![image](/Users/evanbesser/Documents/ga_wdi/projects/fuschia_2/fuchsia/app/assets/images/logo.png)
 
 ###Because who doesn't love to argue on the internet?
 
@@ -26,7 +26,7 @@ Multiple AJAX database calls within the User Controller
     end
   end
 ```
-Some of our code from our interactive comment section (the sides can literally throw punches at each other)
+Example of the code from the interative comments section which allows users to literally throw punches at the opponents argument
 
 ```
 var punchFor = function(){
