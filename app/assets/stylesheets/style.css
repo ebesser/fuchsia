@@ -67,6 +67,9 @@ body {
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
+#title_bar h1 {
+  text-shadow: 0px 3px 0px rgb(45, 106, 158);
+}
 
 #the_topic {
   font-size: 2.5em;
@@ -209,6 +212,7 @@ body {
 #the_arguments {
   width: 75%;
   margin: 0 auto;
+  margin-top: -80px;
 }
 
 .the_arguments {
@@ -278,11 +282,21 @@ body {
 }
 
 #vs_circle {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
-  background color: white;
+  background-color: darkgrey;
+  border: 3px solid white;
   border-radius: 100%;
+  margin-top: -35px;
+  padding: 5px;
+}
+
+#vs_circle h1 {
+  color: white;
+  font-size: 4.5em;
+  text-align: center;
+  margin-top: 15%;
 }
 
 button {
@@ -414,8 +428,8 @@ a:hover{
    }
 
 .button:hover {
-   border-top-color: #grey;
-   background: #grey;
+   border-top-color: grey;
+   background: grey;
    color: #188bc9;
    }
 
