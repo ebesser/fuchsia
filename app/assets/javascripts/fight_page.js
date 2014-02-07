@@ -4,8 +4,6 @@ $(function(){
   var theBody = $('#the_description');
   var theUser = $('#topic_submitter');
   var theHomeButton = $('#home_button');
-  // var theProfileButton = $('#profile_button');
-
 
   
   if (window.location.pathname.indexOf("topics") >= 0 ) {
@@ -24,7 +22,6 @@ $(function(){
           }
           theBody.text(data.body);
           theHomeButton.attr('href', '/');
-          // theProfileButton.attr('href', '#');
 
       })
     })
