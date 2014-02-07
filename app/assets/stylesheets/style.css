@@ -308,7 +308,7 @@ a:hover{
 #input_body {
   margin: 0 auto;
   height:50px;
-  width: 83.5%;
+  width: 89%;
 }
 
 #signin {
@@ -425,7 +425,18 @@ font-weight: 400;
 }
 
 .remove{
-  float:right;
+  margin-left: 30px;
 }
 
+.created {
+  color: #A5A5A5; 
+  font-size: .75em;
+}
 
+.username {
+  font-weight: 700;
+}
+
+h1{
+  font-size: 1.2em;
+}

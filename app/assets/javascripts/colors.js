@@ -1,8 +1,7 @@
 var bgGradient = function(winner){
   var bg_gradient = $('#bg_gradient');
   var title_bar = $('#title_bar');
-
-  console.log(winner); 
+  
   if (winner == 1) {
     title_bar.css({
       backgroundColor: "rgb(148, 22, 22)",

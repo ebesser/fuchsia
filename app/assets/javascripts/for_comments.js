@@ -1,6 +1,5 @@
 'use strict';
 var for_comments_application = {
-  // for_comments: [],
 
   fetch: function(success_fnc){
     var self = this;  
@@ -82,18 +81,18 @@ ForComment.prototype.renderCurrent = function(){
   var displayedTopic = window.location.pathname.replace("/topics/", "")
   if (displayedTopic == this.topic_id) {
     var new_li =   $("<li>", {class: "comment_item"});
-    new_li.append( $("<img>").addClass("user_img").attr('src', this.img_url ) );
-    new_li.append( $("<h3>" ).append(this.username) );
-    new_li.append( $("<p>"  ).append(this.created_at) ); 
+    new_li.append( $("<img>").addClass("user_img"    ).attr('src', this.img_url ) );
+    new_li.append( $("<h3>" ).addClass("username"    ).append(this.username) );
+    new_li.append( $("<p>"  ).addClass("created"     ).append(this.created_at) ); 
     new_li.append( $("<p>"  ).addClass("comment_body").append(this.body) );
     if (window.user_id) {
-      new_li.append( $("<button>", {class: "upvote"  }).append("+") );
+      new_li.append( $("<button>", {class: "upvote" }).append("+") );
     }
-    //Color the rank green or red depending on if it's positive or negative
-    var new_span = $("<span>",   {class: "rank"    });
+    //Color the rank blue or red depending on if it's positive or negative, respectively
+    var new_span = $("<span>", {class: "rank"});
     new_span.append( this.rank - 100);
     if (this.rank >= 100 ) {
-      new_span.css('color', 'limegreen');
+      new_span.css('color', 'rgb(50, 112, 205)');
     } else {
       new_span.css('color', 'red');
     }
@@ -108,7 +107,6 @@ ForComment.prototype.renderCurrent = function(){
     }
     
     new_li.data("comment", this);
-    // console.log($('.rank').text)
     
     return new_li;
   }

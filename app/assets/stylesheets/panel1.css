@@ -3,7 +3,6 @@ div.panel {
   display:none;
   position: absolute;
   top: 0;
-  width:20%px;
   left:0%;
   height: 100%;
   z-index: 3;
@@ -11,21 +10,21 @@ div.panel {
   overflow:hidden;
   background-color:black;
 }
+
 div.home {
   display:none;
   font-family:arial;
   color:white;
   padding:50px;
   overflow:hidden;
-  text-align: center;
-}
-span.close {
-    position:absolute;
-    right:10px;
-    top:15px;
-    cursor:pointer;
 }
 
+span.close {
+  position:absolute;
+  right:10px;
+  top:15px;
+  cursor:pointer;
+}
 
 #the_username {
   font-size: 35px;

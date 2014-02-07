@@ -1,8 +1,6 @@
 'use strict';
 var against_comments_application = {
 
-  // against_comments: [],
-
   fetch: function(success_fnc){
     var self = this;
 
@@ -84,10 +82,10 @@ AgainstComment.prototype.renderCurrent = function(){
   var displayedTopic = window.location.pathname.replace("/topics/", "")
   if (displayedTopic == this.topic_id) {
     var new_li =   $("<li>", {class: "comment_item"});
-    new_li.append( $("<img>").addClass("user_img").attr('src', this.img_url ) ); 
-    new_li.append( $("<h3>").append(this.username) );
-    new_li.append( $("<p>").append(this.created_at) ); 
-    new_li.append( $("<p>").addClass("comment_body").append(this.body) ); 
+    new_li.append( $("<img>").addClass("user_img"    ).attr('src', this.img_url ) ); 
+    new_li.append( $("<h3>" ).addClass("username"    ).append(this.username) );
+    new_li.append( $("<p>"  ).addClass("created"     ).append(this.created_at) ); 
+    new_li.append( $("<p>"  ).addClass("comment_body").append(this.body) ); 
     if (window.user_id) {
       new_li.append( $("<button>", {class: "upvote"  }).append("+") );
     }
@@ -96,7 +94,7 @@ AgainstComment.prototype.renderCurrent = function(){
     var new_span = $("<span>",   {class: "rank"    });
     new_span.append( this.rank - 100);
     if (this.rank >= 100 ) {
-      new_span.css('color', 'limegreen');
+      new_span.css('color', 'rgb(50, 112, 205)');
     } else {
       new_span.css('color', 'red');
     }
