@@ -281,8 +281,8 @@ body {
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  background-color: red;
-  border: 2px solid rgba(0,0,0,0);
+  background-color: darkgrey;
+  border: 2px solid;
   border-radius: 100%;
   margin-top: -35px
 }
