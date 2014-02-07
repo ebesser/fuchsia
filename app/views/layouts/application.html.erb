@@ -11,16 +11,10 @@
 </head>
 <body>
   <div id="wrapper">
-
-    <div id="signin">
-    <a href="/">home</a>
-    <% if current_user %>
-      <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %>
-    <% else %> 
-      <%= link_to 'Sign Up', new_user_registration_path %>
-      <%= link_to 'Sign In', new_user_session_path %>
-    <% end %>
-    </div>
+     <div class="top_buttons"> 
+       <a href="#" id="home">my profile</a>
+       <a href="/">home</a>
+     </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -51,7 +45,7 @@
     </div>
   </div>
 
-  <button id="home" class="button" href="#">My Profile</a></button>
+  <!-- <button id="home" class="button" href="#">My Profile</a></button> -->
     <script> window.user_id = <%= current_user.id %> </script>
     <script> window.username = "<%= current_user.username %>" </script>
     <script> window.img_url = "<%= current_user.img_url %>" </script>

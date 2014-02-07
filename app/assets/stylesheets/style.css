@@ -24,6 +24,7 @@ html {
 
 body {
   height: 100%;
+  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #wrapper {
@@ -31,7 +32,6 @@ body {
   margin: 0 auto;
   min-height:2000px;
   /*position: relative;*/
-  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #current {
@@ -45,9 +45,18 @@ body {
   right: 0;
   position: absolute;
   z-index: -3;
+  pointer-events:none;
 }
 
 /*The Title Bar*/
+
+#logo {
+  background: url("logo.png");
+  width: 200px;
+  height: 167px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
 
 #title_bar {
   background-color: grey;
@@ -65,6 +74,11 @@ body {
   font-weight: 700;
 }
 
+#statement {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 10px;
+}
 
 /*The Fighters = The two columns of comments*/
 
@@ -263,15 +277,16 @@ body {
   z-index: 3;
 }
 
-button {
-  z-index: 3;
+#vs_circle {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background color: white;
+  border-radius: 100%;
 }
 
-#home {
-  text-decoration: none;
-  color:black;
-  position:fixed;
-  top:40px;
+button {
+  z-index: 3;
 }
 
 
@@ -280,7 +295,7 @@ button {
   width: 70%;
   min-height: 350px;
   margin: 0 auto;
-  background-color: #262626;
+  background-color: #94161b;
   padding: 8px 0;
 }
 
@@ -323,14 +338,29 @@ a:hover{
 
 #signin {
   z-index: 4;
-  float: right;
+  /*float: right;*/
 }
+
 
 #signin a {
   margin: 3px;
   padding: 3px;
   background-color: white;
   border-radius: 5px;
+  float:right;
+}
+#signin a {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+.top_buttons a{
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+  float:right;
 }
 
 .sign_in {
@@ -339,7 +369,7 @@ a:hover{
 }
 
 .sign_in_wrapper {
-  background-color: #262626;
+  background-color: #94161b;
   padding:10px;
   width:60%;
   margin:0 auto;
@@ -402,3 +432,10 @@ font-weight: 400;
   font-size: 25px;
 }
 
+#statement {
+  width: 50%;
+}
+
+.remove{
+  float:right;
+}

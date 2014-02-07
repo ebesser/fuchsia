@@ -1,4 +1,26 @@
-<h1 id="">Vitriol</h1>
+ <div id="signin">
+<% if current_user %>
+  <%= link_to 'sign out', destroy_user_session_path, :method => :delete  %>
+<% else %> 
+  <%= link_to 'sign up', new_user_registration_path %>
+  <%= link_to 'sign in', new_user_session_path %>
+<% end %>
+</div>
+
+<div id="logo"></div>
+
+
+
+
+<div id="statement">
+  <h1>
+    Welcome To Vitriol!
+	</h1>
+  <p>
+    Create or join a topic, Follow a thread, and Contribute to the conversation (because we all know the internet always needs more arguments).
+  <p>
+</div>
+
 
 <div id="topic_list_wrapper" class="row">
   <div id="current">
