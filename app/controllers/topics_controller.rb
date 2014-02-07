@@ -61,7 +61,6 @@ class TopicsController < ApplicationController
   def follow
      respond_to do |format|
       format.html do
-        # if params.class = Integer
 
         follow = Follow.new
         follow.user_id = params['user']

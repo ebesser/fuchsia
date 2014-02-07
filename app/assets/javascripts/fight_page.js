@@ -4,7 +4,7 @@ $(function(){
   var theBody = $('#the_description');
   var theUser = $('#topic_submitter');
   
-  if (window.location.pathname.indexOf("topics") >= 0 ) {
+  if (window.location.pathname.indexOf("topics") >= 0 && window.location.pathname.indexOf("winner") === undefined ) {
     var topic_id = window.location.pathname.replace("/topics/", "")
 
     $.ajax({
