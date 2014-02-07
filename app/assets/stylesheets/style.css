@@ -212,26 +212,27 @@ body {
 #comment_bar {
   width: 1100px;
   height: 197px;
-  bottom: 1%;
+  bottom: 4%;
   position: fixed;
   background: url("banner.png");
-  margin-left: 10%;
+  margin-left: 8%;
   z-index: 2;
 }
 
 #the_comment_boxes {
   width: 85%;
   margin: 0 auto;
-  bottom: 6%;
+  bottom: 4%;
   position: fixed;
   margin-left: 7%;
   z-index: 3;
 }
 
 #the_comment_boxes div {
-  background-color: lightgrey;
+  background-color: darkgrey;
   width: 25%;
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
+  border-radius: 5px;
   z-index: 3;
 }
 
