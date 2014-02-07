@@ -12,11 +12,11 @@ $(function(){
       type: "get",
       dataType: "json",
       success: (function(data){
-          theTopic.text(data.title);
+          theTopic.text(data.title.toUpperCase());
           theUser.text("Submited By: "+data.username);
           if (data.link) {
             theLink.append( $("<div>", {class: "topic_link"      })
-                   .append('<a href="'+ data.link +'" target="_blank">'+ data.link.substring(0,30) + '</a>') );
+                   .append('<a href="'+ data.link +'" target="_blank">'+ data.link + '</a>') );
           }
           theBody.text(data.body);
           // console.log(data.title + " " + data.link + " " + data.body);

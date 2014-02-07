@@ -29,8 +29,13 @@ body {
 #wrapper {
   text-align: center;
   margin: 0 auto;
-  min-height:2500px;
+  min-height:2000px;
   /*position: relative;*/
+  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
+}
+
+#current {
+  background-color: #94161b;
 }
 
 #bg_gradient {
@@ -39,6 +44,7 @@ body {
   left: 0;
   right: 0;
   position: absolute;
+  z-index: -3;
 }
 
 /*The Title Bar*/
@@ -53,7 +59,8 @@ body {
 }
 
 
-#the_topic {font-size: 2.5em;
+#the_topic {
+  font-size: 2.5em;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
 }
@@ -64,7 +71,7 @@ body {
 #the_fighters {
   width: 83%;
   position: absolute;
-  top: 4%;
+  top: 6%;
   left: 8%;
   padding-bottom: 15%;
 }
@@ -79,6 +86,7 @@ body {
   height: 100%;
   float: left;
   box-shadow: 10px 10px 10px rgba(139, 136, 120, 0.5);
+  border-radius: 5px;
 }
 
 #fighter2 {
@@ -86,6 +94,7 @@ body {
   height: 100%;
   float: right;
   box-shadow: -10px 10px 10px rgba(139, 136, 120, 0.5);
+  border-radius: 5px;
 }
 
 /*The animated fists*/
@@ -100,12 +109,14 @@ body {
   pointer-events:none;
 }
 
-#for_fists div, #against_fists div{
+#for_fists div, #against_fists div {
   width: 145px;
   height: 150px;
 }
 
-#against_fists {margin-left: 19%}
+#against_fists {
+  margin-left: 19%
+}
 
 #for_fist_front { 
   background:url("for_fist_front.png");
@@ -186,13 +197,17 @@ body {
   margin: 0 auto;
 }
 
-.the_arguments {display: inline-block}
+.the_arguments {
+  display: inline-block;
+}
 
 #for_text {
   padding: 4px;
   float:left;
   margin-left: 8%;
   font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 #against_text {
@@ -200,6 +215,8 @@ body {
   float: right;
   margin-right: 4.5%;
   font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 /*The banner that holds the new comment boxes*/
@@ -228,7 +245,9 @@ body {
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
-#the_comment_boxes textarea {width: 90%}
+#the_comment_boxes textarea {
+  width: 90%;
+}
 
 #for_comment_box {
   float: left;
@@ -244,7 +263,9 @@ body {
   z-index: 3;
 }
 
-button{z-index: 3}
+button {
+  z-index: 3;
+}
 
 #home {
   text-decoration: none;
@@ -281,7 +302,7 @@ button{z-index: 3}
 
 a, a:hover, a:link, a:active, a:visited {
   text-decoration: none;
-  color: green;
+  color: rgb(45,106,158);
 }
 
 a:hover{
@@ -298,6 +319,18 @@ a:hover{
   margin: 0 auto;
   height:50px;
   width: 83.5%;
+}
+
+#signin {
+  z-index: 4;
+  float: right;
+}
+
+#signin a {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .sign_in {
@@ -337,15 +370,17 @@ a:hover{
    text-decoration: none;
    vertical-align: middle;
    }
+
 .button:hover {
-   border-top-color: #fc0000;
-   background: #fc0000;
+   border-top-color: #grey;
+   background: #grey;
    color: #188bc9;
    }
+
 .button:active {
    border-top-color: #08141c;
    background: #08141c;
-   }
+}
 
 
 #the_username {
@@ -361,7 +396,7 @@ font-weight: 400;
   margin-bottom: 5px;
 }
 
-#followed_header{
+#followed_header {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 25px;
