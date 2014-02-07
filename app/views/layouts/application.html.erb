@@ -14,12 +14,12 @@
 
     <div id="signin">
       <a href="/">home</a>
-      <a id="home" href="#">my profile</a>
+      <a href="#">my profile</a>
       <% if current_user %>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %>
+        <%= link_to 'sign out', destroy_user_session_path, :method => :delete  %>
       <% else %> 
-        <%= link_to 'Sign Up', new_user_registration_path %>
-        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'sign up', new_user_registration_path %>
+        <%= link_to 'sign in', new_user_session_path %>
       <% end %>
     </div>
 
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <button id="home" class="button" href="#">My Profile</a></button>
+  <!-- <button id="home" class="button" href="#">My Profile</a></button> -->
     <script> window.user_id = <%= current_user.id %> </script>
     <script> window.username = "<%= current_user.username %>" </script>
     <script> window.img_url = "<%= current_user.img_url %>" </script>

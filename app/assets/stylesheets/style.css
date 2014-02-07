@@ -267,13 +267,6 @@ button {
   z-index: 3;
 }
 
-#home {
-  text-decoration: none;
-  color:black;
-  position:fixed;
-  top:40px;
-}
-
 
 #topic_list_wrapper {
   margin-top: 4%;
@@ -326,12 +319,14 @@ a:hover{
   float: right;
 }
 
+
 #signin a {
   margin: 3px;
   padding: 3px;
   background-color: white;
   border-radius: 5px;
 }
+
 
 .sign_in {
   background-color: white;
