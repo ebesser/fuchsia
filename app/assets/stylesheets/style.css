@@ -401,3 +401,7 @@ font-weight: 400;
 #statement {
   width: 50%;
 }
+
+.remove{
+  float:right;
+}
