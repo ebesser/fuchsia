@@ -50,6 +50,10 @@ body {
 
 /*The Title Bar*/
 
+#logo {
+  
+}
+
 #title_bar {
   background-color: grey;
   width: 100%;
