@@ -209,6 +209,7 @@ body {
 #the_arguments {
   width: 75%;
   margin: 0 auto;
+  margin-top: -80px;
 }
 
 .the_arguments {
@@ -282,9 +283,10 @@ body {
   height: 100px;
   margin: 0 auto;
   background-color: darkgrey;
-  border: 2px solid;
+  border: 3px solid white;
   border-radius: 100%;
-  margin-top: -35px
+  margin-top: -35px;
+  padding: 5px;
 }
 
 #vs_circle h1 {
@@ -411,8 +413,8 @@ a:hover{
    }
 
 .button:hover {
-   border-top-color: #grey;
-   background: #grey;
+   border-top-color: grey;
+   background: grey;
    color: #188bc9;
    }
 
