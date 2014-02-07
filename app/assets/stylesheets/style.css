@@ -278,11 +278,20 @@ body {
 }
 
 #vs_circle {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
-  background color: white;
+  background-color: darkgrey;
+  border: 2px solid;
   border-radius: 100%;
+  margin-top: -35px
+}
+
+#vs_circle h1 {
+  color: white;
+  font-size: 4.5em;
+  text-align: center;
+  margin-top: 15%;
 }
 
 button {
