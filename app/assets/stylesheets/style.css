@@ -24,6 +24,7 @@ html {
 
 body {
   height: 100%;
+  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #wrapper {
@@ -31,7 +32,6 @@ body {
   margin: 0 auto;
   min-height:2000px;
   /*position: relative;*/
-  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #current {
@@ -44,6 +44,8 @@ body {
   left: 0;
   right: 0;
   position: absolute;
+  z-index: -3;
+  pointer-events:none;
 }
 
 /*The Title Bar*/
@@ -320,6 +322,17 @@ a:hover{
   width: 83.5%;
 }
 
+#signin {
+  z-index: 4;
+  float: right;
+}
+
+#signin a {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
 
 .sign_in {
   background-color: white;
@@ -360,8 +373,8 @@ a:hover{
    }
 
 .button:hover {
-   border-top-color: #fc0000;
-   background: #fc0000;
+   border-top-color: #grey;
+   background: #grey;
    color: #188bc9;
    }
 
