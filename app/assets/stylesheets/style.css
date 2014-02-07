@@ -67,6 +67,9 @@ body {
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
+#title_bar h1 {
+  text-shadow: 0px 3px 0px rgb(45, 106, 158);
+}
 
 #the_topic {
   font-size: 2.5em;
