@@ -74,6 +74,11 @@ body {
   font-weight: 700;
 }
 
+#statement {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 10px;
+}
 
 /*The Fighters = The two columns of comments*/
 
@@ -99,7 +104,7 @@ body {
 }
 
 #fighter2 {
-  background-color: #94161b;
+  background-color: #262626;
   height: 100%;
   float: right;
   box-shadow: -10px 10px 10px rgba(139, 136, 120, 0.5);
@@ -272,6 +277,23 @@ body {
   z-index: 3;
 }
 
+#vs_circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: darkgrey;
+  border: 2px solid;
+  border-radius: 100%;
+  margin-top: -35px
+}
+
+#vs_circle h1 {
+  color: white;
+  font-size: 4.5em;
+  text-align: center;
+  margin-top: 15%;
+}
+
 button {
   z-index: 3;
 }
@@ -325,7 +347,7 @@ a:hover{
 
 #signin {
   z-index: 4;
-  float: right;
+  /*float: right;*/
 }
 
 
@@ -334,8 +356,21 @@ a:hover{
   padding: 3px;
   background-color: white;
   border-radius: 5px;
+  float:right;
 }
-
+#signin a {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+.top_buttons a{
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+  float:right;
+}
 
 .sign_in {
   background-color: white;
