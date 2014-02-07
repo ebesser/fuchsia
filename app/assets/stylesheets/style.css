@@ -53,7 +53,8 @@ body {
 }
 
 
-#the_topic {font-size: 2.5em;
+#the_topic {
+  font-size: 2.5em;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
 }
@@ -102,12 +103,14 @@ body {
   pointer-events:none;
 }
 
-#for_fists div, #against_fists div{
+#for_fists div, #against_fists div {
   width: 145px;
   height: 150px;
 }
 
-#against_fists {margin-left: 19%}
+#against_fists {
+  margin-left: 19%
+}
 
 #for_fist_front { 
   background:url("for_fist_front.png");
@@ -188,7 +191,9 @@ body {
   margin: 0 auto;
 }
 
-.the_arguments {display: inline-block}
+.the_arguments {
+  display: inline-block;
+}
 
 #for_text {
   padding: 4px;
@@ -234,7 +239,9 @@ body {
   box-shadow: 0px 5px 3px rgba(139, 136, 120, 0.5);
 }
 
-#the_comment_boxes textarea {width: 90%}
+#the_comment_boxes textarea {
+  width: 90%;
+}
 
 #for_comment_box {
   float: left;
@@ -250,7 +257,9 @@ body {
   z-index: 3;
 }
 
-button{z-index: 3}
+button {
+  z-index: 3;
+}
 
 #home {
   text-decoration: none;
@@ -306,6 +315,7 @@ a:hover{
   width: 83.5%;
 }
 
+
 .sign_in {
   background-color: white;
   border-radius: 10px;
@@ -343,15 +353,17 @@ a:hover{
    text-decoration: none;
    vertical-align: middle;
    }
+
 .button:hover {
    border-top-color: #fc0000;
    background: #fc0000;
    color: #188bc9;
    }
+
 .button:active {
    border-top-color: #08141c;
    background: #08141c;
-   }
+}
 
 
 #the_username {
@@ -367,9 +379,9 @@ font-weight: 400;
   margin-bottom: 5px;
 }
 
-#followed_header{
+#followed_header {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 25px;
-
+}
 
