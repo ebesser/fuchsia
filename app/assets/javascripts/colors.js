@@ -3,12 +3,12 @@ var bgGradient = function(winner){
   console.log(winner); 
   if (winner == 1) {
     bg_gradient.css({
-      background: "-webkit-linear-gradient(-15deg, rgb(155, 198, 255) 75%, rgb(250, 255, 90) 75%)",
+      background: "-webkit-linear-gradient(-5deg, rgb(155, 198, 255) 60%, rgb(250, 255, 90) 60%)",
     });
   }
   else if (winner == -1) {
     bg_gradient.css({
-      background: "-webkit-linear-gradient(15deg, rgb(155, 198, 255) 25%, rgb(250, 255, 90) 25%)"
+      background: "-webkit-linear-gradient(5deg, rgb(155, 198, 255) 10%, rgb(250, 255, 90) 10%)"
     });
   }
   else if (winner == 0) {
@@ -47,6 +47,7 @@ $(function(){
     })
   });
 
+if (window.location.pathname.indexOf("topics") >= 0 ) {
 	$.ajax({
       url: '/topics/' + topic_id + '/winner', 
       dataType: 'json', 
@@ -55,4 +56,5 @@ $(function(){
       	bgGradient(data);
       })
   	})
+  }
 })
