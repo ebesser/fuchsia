@@ -69,7 +69,7 @@ function Topic(title, created_at, link, body, user_id, username, id){
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>", {class: "topic_item"});
   new_div.append( $("<h1>", {class: "topic_title"     })
-         .append('<a href="/topics/'+ this.id +'">'+ this.title + '</a>') ); 
+         .append('<a href="/topics/'+ this.id +'">'+ this.title.toUpperCase() + '</a>') ); 
 
    if (window.user_id) {
     new_div.append( $("<button>", {class: "follow button"       }).append("Follow"))

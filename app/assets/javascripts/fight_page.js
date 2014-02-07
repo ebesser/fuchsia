@@ -12,7 +12,7 @@ $(function(){
       type: "get",
       dataType: "json",
       success: (function(data){
-          theTopic.text(data.title);
+          theTopic.text(data.title.toUpperCase());
           theUser.text("Submited By: "+data.username);
           if (data.link) {
             theLink.append( $("<div>", {class: "topic_link"      })
