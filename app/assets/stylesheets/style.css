@@ -51,7 +51,11 @@ body {
 /*The Title Bar*/
 
 #logo {
-  
+  background: url("logo.png");
+  width: 200px;
+  height: 167px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 #title_bar {
