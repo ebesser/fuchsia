@@ -24,6 +24,7 @@ html {
 
 body {
   height: 100%;
+  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #wrapper {
@@ -31,7 +32,6 @@ body {
   margin: 0 auto;
   min-height:2000px;
   /*position: relative;*/
-  background: -webkit-linear-gradient(180deg, rgb(155, 198, 255) 50%, rgb(250, 255, 90) 50%);
 }
 
 #current {
@@ -45,6 +45,7 @@ body {
   right: 0;
   position: absolute;
   z-index: -3;
+  pointer-events:none;
 }
 
 /*The Title Bar*/
@@ -90,7 +91,7 @@ body {
 }
 
 #fighter2 {
-  background-color: #262626;
+  background-color: #94161b;
   height: 100%;
   float: right;
   box-shadow: -10px 10px 10px rgba(139, 136, 120, 0.5);
@@ -273,7 +274,7 @@ button {
   width: 70%;
   min-height: 350px;
   margin: 0 auto;
-  background-color: #262626;
+  background-color: #94161b;
   padding: 8px 0;
 }
 
@@ -334,7 +335,7 @@ a:hover{
 }
 
 .sign_in_wrapper {
-  background-color: #262626;
+  background-color: #94161b;
   padding:10px;
   width:60%;
   margin:0 auto;
