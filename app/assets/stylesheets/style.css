@@ -216,7 +216,7 @@ body {
   position: fixed;
   background: url("banner.png");
   z-index: 2;
-  margin-left: 8%;
+  margin-left: 12%;
 }
 
 #the_comment_boxes {
