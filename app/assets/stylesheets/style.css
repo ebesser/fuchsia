@@ -318,12 +318,30 @@ a:hover{
   border-radius: 5px;
   float:right;
 }
+
 #signin a {
   margin: 3px;
   padding: 3px;
   background-color: white;
   border-radius: 5px;
 }
+
+
+#home_button, #profile_button {
+  margin: 3px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+  position:fixed;
+  top:0px;
+  right:0px;
+}
+
+/*#profile_button{
+  right:80px;
+}*/
+
+
 .top_buttons a{
   margin: 3px;
   padding: 3px;
@@ -408,3 +426,5 @@ font-weight: 400;
 .remove{
   float:right;
 }
+
+
