@@ -4,9 +4,10 @@ $(document).ready(function() {
       'width': 'show'
     }, 1000, function() {
       $('div.home').fadeIn(500);
+      // $('div.home').show("slide", { direction: "right" }, 1000);
+
     });
   });
-
 
 
   $('span.close').on('click', function() {

@@ -69,7 +69,8 @@ function Topic(title, created_at, link, body, user_id, username, id){
 Topic.prototype.renderCurrent = function(){
   var new_div =   $("<div>", {class: "topic_item"});
   new_div.append( $("<h1>", {class: "topic_title"     })
-         .append('<a href="/topics/'+ this.id +'">'+ this.title.toUpperCase() + '</a>') ); 
+         .append('<a href="/topics/'+ this.id +'">'+ this.title.toUpperCase() + '</a>') )
+         .append( $("<div>", {class: "topic_created_at created"}).append(this.created_at) );
 
    if (window.user_id) {
     new_div.append( $("<button>", {class: "follow button"       }).append("Follow"))
@@ -77,15 +78,12 @@ Topic.prototype.renderCurrent = function(){
   if (window.user_id === this.user_id) {
     new_div.append( $("<button>", {class: "remove button"  }).append("Remove") );
   }
-  // new_div.append( $("<div>", {class: "topic_user_id"   }).append(this.user_id) );
-  new_div.append( $("<div>", {class: "topic_link"      })
+  if (this.link !== "http://") {
+    new_div.append( $("<div>", {class: "topic_link"      })
          .append('<a href="'+ this.link +'" target="_blank">'+ this.link + '</a>') );
+  }
+  new_div.append( $("<div>", {class: "topic_username"      }).append("Submitted by: " + this.username) );
   new_div.append( $("<div>", {class: "topic_body"      }).append(this.body) );
-
-  new_div.append( $("<div>", {class: "topic_username"      }).append("Submited By: " + this.username) );
-  new_div.append( $("<div>", {class: "topic_created_at"}).append(this.created_at) );
- 
- 
 
   new_div.data("topic", this);
   return new_div;

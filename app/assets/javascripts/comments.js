@@ -1,18 +1,18 @@
 'use strict';
-var for_comments_application = {
+var comments_application = {
 
   fetch: function(success_fnc){
     var self = this;  
 
     $.ajax({
-      url: '/for_comments', 
+      url: '/comments', 
       dataType: 'json', 
       method: 'get'
     })
       .success(function(data){
-        self.for_comments = [];
+        self.comments = [];
         $(data).each(function(idx, comment_ele){
-          var new_comment = new ForComment( 
+          var new_comment = new Comment( 
             comment_ele.body, 
             comment_ele.created_at, 
             comment_ele.user_id,
@@ -20,20 +20,28 @@ var for_comments_application = {
             comment_ele.img_url,
             comment_ele.topic_id,
             comment_ele.rank,
+            comment_ele.agree,
             comment_ele.id
           );
-          self.for_comments.push(new_comment)
+          self.comments.push(new_comment)
         })
         success_fnc(); //call the function passed in
       }); 
   },
 
   render: function(){
-    $('#the_for_comments').empty()
-    var commentsReversed = $(this.for_comments).sort(function(a,b){ return b["rank"] - a["rank"] });
+    $('#the_for_comments').empty();
+    $('#the_against_comments').empty();
 
-    commentsReversed.each(function(idx, comment){   
-    $('#the_for_comments').append(comment.renderCurrent());
+    var commentsReversed = $(this.comments).sort(function(a,b){ return b["rank"] - a["rank"] });
+
+    commentsReversed.each(function(idx, comment){  
+      console.log('im here!!!' + comment.agree )
+      if (comment.agree === true) { 
+        $('#the_for_comments').append(comment.renderCurrent());
+      } else {
+        $('#the_against_comments').append(comment.renderCurrent());
+      }
     })  
   },
 
@@ -45,27 +53,27 @@ var for_comments_application = {
 
     $('.upvote').on('click', function(e){
       $(this).parent().data("comment").sync('upvote');
-      for_comments_application.fetch(success_fnc_for);
+      comments_application.fetch(success_fnc);
     }),
 
     $('.downvote').on('click', function(e){
       $(this).parent().data("comment").sync('downvote');
-      for_comments_application.fetch(success_fnc_for);
+      comments_application.fetch(success_fnc);
     });
 
   }
 
 };
 
-var success_fnc_for = function(){
-  for_comments_application.render()
-  for_comments_application.bind_buttons()
+var success_fnc = function(){
+  comments_application.render()
+  comments_application.bind_buttons()
 };
 
 
 // *********************************************
-//  Define ForComment
-function ForComment(body, created_at, user_id, username, img_url, topic_id, rank, id){
+//  Define Comment
+function Comment(body, created_at, user_id, username, img_url, topic_id, rank, agree, id){
   this.body       = body;
   this.created_at = created_at;
   this.user_id    = user_id;
@@ -73,11 +81,12 @@ function ForComment(body, created_at, user_id, username, img_url, topic_id, rank
   this.img_url    = img_url;
   this.topic_id   = topic_id;
   this.rank       = rank;
+  this.agree      = agree;
   this.id         = id;
 }
 
 // Local give-me-the-html-for-current-list
-ForComment.prototype.renderCurrent = function(){
+Comment.prototype.renderCurrent = function(){
   var displayedTopic = window.location.pathname.replace("/topics/", "")
   if (displayedTopic == this.topic_id) {
     var new_li =   $("<li>", {class: "comment_item"});
@@ -115,7 +124,7 @@ ForComment.prototype.renderCurrent = function(){
 
 
 //  Local update
-ForComment.prototype.update = function(data){
+Comment.prototype.update = function(data){
   this.body       = data.body
   this.created_at = data.created_at
   this.topic_id   = data.topic_id
@@ -126,9 +135,9 @@ ForComment.prototype.update = function(data){
 };
 
 // Database mutation of destroy
-ForComment.prototype.destroy = function(){
+Comment.prototype.destroy = function(){
   $.ajax({
-    url: '/for_comments/' + this.id,
+    url: '/comments/' + this.id,
     dataType: 'json',
     method: 'delete'
   })
@@ -139,7 +148,7 @@ ForComment.prototype.destroy = function(){
 
 
 
-ForComment.prototype.sync = function(method, comment_data){
+Comment.prototype.sync = function(method, comment_data){
 
   var self = this;
 
@@ -148,19 +157,19 @@ ForComment.prototype.sync = function(method, comment_data){
   switch (method){
   case 'create':
     ajax_options = {
-      url: '/for_comments',
+      url: '/comments',
       dataType: 'json',
       method: 'post',
       data: {comment: comment_data},
       success: function(){
-       for_comments_application.fetch(success_fnc_for);
+       comments_application.fetch(success_fnc);
       }
     }
     break;
 
   case 'get':
     ajax_options = {
-      url: '/for_comments/' + this.id,
+      url: '/comments/' + this.id,
       dataType: 'json',
       method: 'get'
     }
@@ -168,7 +177,7 @@ ForComment.prototype.sync = function(method, comment_data){
 
   case 'update':
     ajax_options = {
-      url: '/for_comments/' + this.id,
+      url: '/comments/' + this.id,
       dataType: 'json',
       method: 'put', 
       data: {comment: comment_data}
@@ -177,7 +186,7 @@ ForComment.prototype.sync = function(method, comment_data){
     
   case 'upvote':
   ajax_options = {
-    url: '/for_comments/' + this.id + '/upvote',
+    url: '/comments/' + this.id + '/upvote',
     dataType: 'json',
     method: 'put', 
     data: {comment: comment_data}
@@ -186,7 +195,7 @@ ForComment.prototype.sync = function(method, comment_data){
     
   case 'downvote':
     ajax_options = {
-      url: '/for_comments/' + this.id + '/downvote',
+      url: '/comments/' + this.id + '/downvote',
       dataType: 'json',
       method: 'put', 
       data: {comment: comment_data}
@@ -195,7 +204,7 @@ ForComment.prototype.sync = function(method, comment_data){
 
   case 'destroy':
     ajax_options = {
-      url: '/for_comments/' + this.id,
+      url: '/comments/' + this.id,
       dataType: 'json',
       method: 'delete' 
     } 
@@ -212,28 +221,48 @@ $(function document_ready(){
   console.log('document is ready');
 
   var success_fnc = function(){
-    for_comments_application.render()
-    for_comments_application.bind_buttons()
+    comments_application.render()
+    comments_application.bind_buttons()
   };
 
-  for_comments_application.fetch(success_fnc);
+  comments_application.fetch(success_fnc);
 
 
   $('#button_for').on('click', function(e){
     var new_comment_body = $('#input_for').val();  
     $('#input_for').val("");
     if (new_comment_body.length > 0){
-      var new_comment = new ForComment();
+      var new_comment = new Comment();
       new_comment.sync('create', { 
         body:     new_comment_body,
         user_id:  window.user_id,
         username: window.username,
         img_url:  window.img_url,
+        agree:    true,
         topic_id: window.location.pathname.replace("/topics/", "")
       });
     }
     
   });
+
+
+  $('#button_against').on('click', function(e){
+    var new_comment_body = $('#input_against').val();  
+    $('#input_against').val("");
+    if (new_comment_body.length > 0){
+      var new_comment = new Comment();
+      new_comment.sync('create', { 
+        body:     new_comment_body,
+        user_id:  window.user_id,
+        username: window.username,
+        img_url:  window.img_url,
+        agree:    false,
+        topic_id: window.location.pathname.replace("/topics/", "")
+      });
+    }
+    
+  });
+
 
 });
 

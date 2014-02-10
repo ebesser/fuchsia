@@ -11,47 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203223955) do
+ActiveRecord::Schema.define(:version => 20140201205842) do
 
-  create_table "against_comments", :force => true do |t|
+  create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.string   "username"
     t.string   "img_url"
     t.integer  "topic_id"
     t.integer  "rank",       :default => 100
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
-  create_table "against_votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "comment_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "agree",      :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "follows", :force => true do |t|
     t.integer  "user_id"
     t.integer  "topic_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "for_comments", :force => true do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.string   "username"
-    t.string   "img_url"
-    t.integer  "topic_id"
-    t.integer  "rank",       :default => 100
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
-  create_table "for_votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "comment_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

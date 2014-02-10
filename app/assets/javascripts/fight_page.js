@@ -1,8 +1,8 @@
 $(function(){
   var theTopic = $('#the_topic');
-  var theLink = $('#the_link');
-  var theBody = $('#the_description');
-  var theUser = $('#topic_submitter');
+  var theLink  = $('#the_link');
+  var theBody  = $('#the_description');
+  var theUser  = $('#topic_submitter');
   var theHomeButton = $('#home_button');
 
   
@@ -16,8 +16,8 @@ $(function(){
       success: (function(data){
           theTopic.text(data.title.toUpperCase());
           theUser.text("Submited By: " + data.username);
-          if (data.link) {
-            theLink.append( $("<div>", {class: "topic_link"      })
+          if (data.link !== "http://") {
+            theLink.append( $("<div>", {class: "topic_link"})
                    .append('<a href="'+ data.link +'" target="_blank">'+ data.link + '</a>') );
           }
           theBody.text(data.body);

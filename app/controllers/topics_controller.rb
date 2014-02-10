@@ -11,10 +11,10 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.json do 
         topic = Topic.create( 
-          title:   params['topic']['title'], 
-          link:    params['topic']['link'], 
-          body:    params['topic']['body'],
-          user_id: params['topic']['user_id'],
+          title:    params['topic']['title'], 
+          link:     params['topic']['link'], 
+          body:     params['topic']['body'],
+          user_id:  params['topic']['user_id'],
           username: params['topic']['username']  
         )
         render :json => topic.to_json
@@ -42,8 +42,8 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.json do
 
-        for_comments = ForComment.where(topic_id: params[:topic_id])
-        against_comments = AgainstComment.where(topic_id: params[:topic_id])
+        for_comments = Comment.where(topic_id: params[:topic_id]) # <--fix this
+        against_comments = Comment.where(topic_id: params[:topic_id]) # <--fix this
 
         if for_comments.count > against_comments.count
           winner = 1

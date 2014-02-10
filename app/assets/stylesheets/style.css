@@ -287,7 +287,7 @@ button {
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-
+  padding: 10px 0;
 }
 
 a, a:hover, a:link, a:active, a:visited {
@@ -374,7 +374,8 @@ a:hover{
    background: -moz-linear-gradient(top, #fffcff, #ffffff);
    background: -ms-linear-gradient(top, #fffcff, #ffffff);
    background: -o-linear-gradient(top, #fffcff, #ffffff);
-   padding: 7.5px 15px;
+   padding: 6.5px 15px;
+   margin: 3px 0;
    -webkit-border-radius: 9px;
    -moz-border-radius: 9px;
    border-radius: 9px;
@@ -384,7 +385,6 @@ a:hover{
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: #000000;
    font-size: 13px;
-   font-family: Georgia, serif;
    text-decoration: none;
    vertical-align: middle;
    }
@@ -392,7 +392,7 @@ a:hover{
 .button:hover {
    border-top-color: grey;
    background: grey;
-   color: #188bc9;
+   color: white;
    }
 
 .button:active {
@@ -430,7 +430,7 @@ font-weight: 400;
 
 .created {
   color: #A5A5A5; 
-  font-size: .75em;
+  font-size: .85em;
 }
 
 .username {

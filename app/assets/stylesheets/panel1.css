@@ -1,29 +1,28 @@
 
 div.panel {
-  display:none;
+  display: none;
   position: absolute;
   top: 0;
-  left:0%;
+  left: 0%;
   height: 100%;
   z-index: 3;
   margin: 0;
-  overflow:hidden;
-  background-color:black;
+  overflow: hidden;
+  background-color: rgba(31, 31, 31, .95);
 }
 
 div.home {
-  display:none;
-  font-family:arial;
-  color:white;
-  padding:50px;
-  overflow:hidden;
+  display: none;
+  color: white;
+  padding: 50px;
+  overflow: hidden;
 }
 
 span.close {
-  position:absolute;
-  right:10px;
-  top:15px;
-  cursor:pointer;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
 }
 
 #the_username {
