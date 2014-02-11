@@ -60,17 +60,4 @@ class CommentsController < ApplicationController
   end
 
 
-  # def update
-  #   respond_to do |format|
-  #     format.json do
-  #       comment = Comment.find(params[:id])
-  #       comment.title = params['comment']['title']
-  #       comment.link  = params['comment']['link']
-  #       comment.body  = params['comment']['body']
-  #       comment.save
-  #       render :json => comment.to_json
-  #     end
-  #   end
-  # end
-
 end
