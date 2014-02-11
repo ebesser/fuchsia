@@ -42,8 +42,8 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.json do
 
-        for_comments = Comment.where(topic_id: params[:topic_id]) # <--fix this
-        against_comments = Comment.where(topic_id: params[:topic_id]) # <--fix this
+        for_comments = Comment.where(topic_id: params[:topic_id], agree: true)
+        against_comments = Comment.where(topic_id: params[:topic_id], agree: false) 
 
         if for_comments.count > against_comments.count
           winner = 1
