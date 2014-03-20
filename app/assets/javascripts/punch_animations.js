@@ -67,6 +67,13 @@ var punchAgainst = function(){
 };
 
 $(function(){
+  setTimeout(function(){
+    punchFor();
+  }, 500)
+  setTimeout(function(){
+    punchAgainst();
+  }, 1000)
+
   var buttonFor = $('#button_for');
   var buttonAgainst = $('#button_against');
 

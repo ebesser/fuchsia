@@ -215,11 +215,21 @@ body {
 /*The banner that holds the new comment boxes*/
 
 #comment_bar {
-  width: 1100px;
-  height: 197px;
+  width: 80%;
+  height: 20%;
   bottom: 4%;
   position: fixed;
-  background: url("banner.png");
+  background: url("banner.svg");
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -ms-background-size: contain;
+  -o-background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-background-repeat: no-repeat;
+  -moz-background-repeat: no-repeat;
+  -ms-background-repeat: no-repeat;
+  -o-background-repeat: no-repeat;
   z-index: 2;
   margin-left: 12%;
 }
@@ -287,7 +297,7 @@ button {
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  padding: 10px 0;
+
 }
 
 a, a:hover, a:link, a:active, a:visited {
@@ -308,7 +318,7 @@ a:hover{
 #input_body {
   margin: 0 auto;
   height:50px;
-  width: 89%;
+  width: 83.5%;
 }
 
 #signin {
@@ -374,8 +384,7 @@ a:hover{
    background: -moz-linear-gradient(top, #fffcff, #ffffff);
    background: -ms-linear-gradient(top, #fffcff, #ffffff);
    background: -o-linear-gradient(top, #fffcff, #ffffff);
-   padding: 6.5px 15px;
-   margin: 3px 0;
+   padding: 7.5px 15px;
    -webkit-border-radius: 9px;
    -moz-border-radius: 9px;
    border-radius: 9px;
@@ -385,6 +394,7 @@ a:hover{
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: #000000;
    font-size: 13px;
+   font-family: Georgia, serif;
    text-decoration: none;
    vertical-align: middle;
    }
@@ -392,7 +402,7 @@ a:hover{
 .button:hover {
    border-top-color: grey;
    background: grey;
-   color: white;
+   color: #188bc9;
    }
 
 .button:active {
@@ -425,18 +435,7 @@ font-weight: 400;
 }
 
 .remove{
-  margin-left: 30px;
+  float:right;
 }
 
-.created {
-  color: #A5A5A5; 
-  font-size: .85em;
-}
 
-.username {
-  font-weight: 700;
-}
-
-h1{
-  font-size: 1.2em;
-}
