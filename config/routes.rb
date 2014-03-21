@@ -5,8 +5,8 @@ Vitriol::Application.routes.draw do
   root :to => "topics#index"
 
 
-  resources :topics, only: [:index, :create, :destroy, :show, :update]
-  resources :comments, only: [:index, :create, :destroy, :show, :update]
+  resources :topics, only: [:index, :create, :destroy, :show]
+  resources :comments, only: [:index, :create, :destroy, :show]
   resources :users, only: [:index, :show]
   resources :comments do
     put "upvote"
