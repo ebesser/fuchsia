@@ -217,7 +217,7 @@ body {
 #comment_bar {
   width: 80%;
   height: 20%;
-  bottom: 4%;
+  bottom: 10%;
   position: fixed;
   background: url("banner.svg");
   background-size: contain;
