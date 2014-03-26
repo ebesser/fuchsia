@@ -1,4 +1,5 @@
-#[Vitriol](http://vitriol.herokuapp.com/)![image](/Users/evanbesser/Documents/ga_wdi/projects/fuschia_2/fuchsia/app/assets/images/logo.png)
+#[Vitriol](http://vitriol.herokuapp.com/)![Screenshot](public/images/logo.png)
+
 
 ###Because who doesn't love to argue on the internet?
 
@@ -7,10 +8,12 @@ Vitriall leverages the power of virtual conflict by allowing users to submit and
 
 Vitriall was build on RoR with the help of mighty Javascript.
 
+![Screenshot](public/images/screenshot.png)
+
 ##Code Snippet
 Multiple AJAX database calls within the User Controller
 
-```
+```ruby
  def following 
     respond_to do |format|
       format.json do
