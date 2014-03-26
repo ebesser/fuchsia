@@ -1,14 +1,16 @@
-#[Vitriol](http://vitriol.herokuapp.com/)![Screenshot](public/images/logo.png)
-
+![Vitriol](public/images/logo.png)
 
 ###Because who doesn't love to argue on the internet?
 
 ##Product Description
-Vitriall leverages the power of virtual conflict by allowing users to submit and discuss topics they are interested in. Unlike many other online communities, Vitriall lets users pick certain sides of a specific argument and gives them the opportunity to convince the  community that their side is right. The side with the most upvotes and traction wins!
+Vitriol leverages the power of virtual conflict by allowing users to submit and discuss topics they are interested in. Unlike many other online communities, Vitriall lets users pick certain sides of a specific argument and gives them the opportunity to convince the  community that their side is right. The side with the most upvotes and traction wins!
 
-Vitriall was build on RoR with the help of mighty Javascript.
+Vitriol was build on RoR with the help of mighty Javascript.
 
 ![Screenshot](public/images/screenshot.png)
+
+## URL
+Vitriol is hosted on heroku: http://vitriol.herokuapp.com
 
 ##Code Snippet
 Multiple AJAX database calls within the User Controller
